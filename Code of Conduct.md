@@ -13,11 +13,11 @@ This Code of Conduct applies both within project spaces and in public spaces whe
 
 **Code 3: Be inclusive.** welcome and support people of all backgrounds and identities. This includes, but is not limited to members of any sexual orientation, gender identity and expression, race, ethnicity, culture, national origin, social and economic class, educational level, color, immigration status, sex, age, size, family status, political belief, religion, and mental and physical ability. 
 
-**Code 4: Be respectful.** Repsect is the important thing in the working place. Repect does not depend on ages , working experience or status. Everyone should repect each other. <br><br>   
+**Code 4: Be respectful.** Repsect is the important thing in the working place. Repect does not depend on ages , working experience or status. Everyone should repect each other.
 
-**Code 5: Be empathetic and optismistic.** Every colleagues are humans with hearts and minds. Be empathetic and optimistic to improve your working environment <br><br>
+**Code 5: Be empathetic and optismistic.** Every colleagues are humans with hearts and minds. Be empathetic and optimistic to improve your working environment
 
-**Code 6: Be Responsible and accountable** A person 's responbilitiy and accountablity define the standard of the person. Be reponsible and honest with your works. Every used other people's works should be referenced. Admitting mistakes can be forgiven instead of lying. We value the honesty.<br><br>
+**Code 6: Be Responsible and accountable** A person 's responbilitiy and accountablity define the standard of the person. Be reponsible and honest with your works. Every used other people's works should be referenced. Admitting mistakes can be forgiven instead of lying. We value the honesty.
   
 | Action | Broken Code ID| Punishment|
 |----|-----|----|
