@@ -10,5 +10,5 @@
 | Action | Broken Code ID| Punishment|
 |----|-----|----|
 |<ul> <li>Absent a working day</li><li>Absent at meetings</li><li>**Absent at Code review Day**</li></ul>|Code 2| buy coffee for the whole team
-|<ul> <li>Used offensive words which can damage the pride of other colleagues </li><li> Used criticing words and degrading words to colleagues</li> <li>Behave unpleasant or harrased behabiour to other person</li><ul> | Code 3| apologise and buy a coffee for offended colleagues|
+|<ul> <li>Used offensive words which can damage the pride of other colleagues </li><li> Used criticing words and degrading words to colleagues</li> <li>Behave unpleasant or harrased behaviour to other person</li><ul> | Code 3| apologise and buy a coffee for offended colleagues|
 |<ul><li>Delay the assigned tasks (Any reasons included) </li></ul>|Code 2|buy a coffee for someone who helped or worked in your place|
