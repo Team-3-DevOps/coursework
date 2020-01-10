@@ -5,7 +5,7 @@ and estimated time are defined as items of product backlog. Items will be sorted
 
 | ID | Features | Description | User Stories | Priority |
 | -- |:--------:|:-----------:|:------------:|:--------:|
-| 1 | Set-up and documentation | <li>Development environemnt creation: initial set-ups and integrations are included</li> | <ul><li>As a project owner, I have conducted norms and product backlog for team. Advices and suggestions are fully provided</li><li>As a scrum master, I created code of conduct which team members have to follow and this will motivate team members</li><li></li><li></li></ul> | High |
+| 1 | Set-up and documentation | <li>Development environemnt creation: initial set-ups and integrations are included</li> | <ul><li>As a project owner, I have conducted norms and product backlog for team. Giving advices and suggestions are provided</li><li> I set up and build Travis C, Correct branches for gitflow and first release created on GitHub</li><li></li><li></li></ul> | High |
 | 2 | Country Reports | <ul><li>Organize all countries relatively by world, continent, region</li><li>Search the country by population rank relatively by world, continent, region</li></ul> | - | High |
 | 3 | City Reports | <ul><li>Organize all cities relatively by world, continent, region, country, district</li><li>Search N populated rank cities relatively by world, continent, region, country, district</li></ul> | - | High |
 | 4 | Capital Reports | <ul><li>Organize the capital cities relatively by world, continent, region</li><li>Search N populated rank capital cities relatively by world, continent, region</li></ul> | - | High |
