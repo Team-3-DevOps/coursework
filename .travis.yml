@@ -6,7 +6,7 @@ services:
   - docker
 
 after_success:
-  - docker network create --driver bridge se-methods
+  - docker network create --driver bridge Coursework
   - docker pull mongo
   - docker run -d --name mongo-dbserver --network Coursework mongo
   - docker build -t Coursework .
