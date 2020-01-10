@@ -7,6 +7,8 @@ In the interest of fostering an open and welcoming environment, we as contributo
 ### Our Scope
 This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its team. Examples of representing a project or a team include using an official project e-mail address, posting via an github account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by scrum master. 
 
+### Our Code
+
 **Code 1: Be present and collaborative** Attendance is important for each individual student and also for the group project. It can improve your image in the eyes of other colleagues. Absent and uncollabroation can damage the the whole project performance. Absent at a working day delay the plan and miss the meeting and the better ideas. Absent at code review day is prohibited because mark are givien at that day. Late at the working day is also impacting the performance.
 
 **Code 2: Be patient and courteous** Everyone is facing differernt situation. Be emphathetic and don't judge other person quickly. Help them as much as you want 
@@ -27,4 +29,4 @@ This Code of Conduct applies both within project spaces and in public spaces whe
 
 
 ### Enforcement
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting scrum master instead of reponsidng by fights or arguments which can damage the team's image. If there is any difficulty, Contact directly to scrum master.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting scrum master instead of reponsidng by fights or arguments which can damage the team's image. If there is any difficulty, Contact directly to scrum master or 40437510@live.napier.ac.uk.
