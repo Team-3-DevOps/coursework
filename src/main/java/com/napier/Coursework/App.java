@@ -1,6 +1,7 @@
 package com.napier.Coursework;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class App
 {      /**
@@ -75,7 +76,70 @@ private Connection con = null;
         // Connect to database
         a.connect();
 
+        // Extract cities by descended population
+        ArrayList<City> city = a.getAllCity();
+
+        // Print all the city information
+        a.printCityInfo(city);
+
         // Disconnect from database
         a.disconnect();
+    }
+
+
+    /**
+     * Gets all the current in the world ordering by population
+     * @return A list of all city names and their population, or null if there is an error.
+     */
+    public ArrayList<City> getAllCity()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT * FROM `city` ORDER BY `Population` DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<City> city = new ArrayList<City>();
+            while (rset.next())
+            {
+                City cty = new City();
+                cty.ID = rset.getInt("city.ID");
+                cty.Name = rset.getString("city.Name");
+                cty.CountryCode = rset.getString("city.CountryCode");
+                cty.District = rset.getString("city.District");
+                cty.Population = rset.getInt("city.Population");
+                city.add(cty);
+            }
+            return city;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+
+    /**
+     * Prints a list of cities.
+     * @param city The list of cities to print.
+     */
+    public void printCityInfo(ArrayList<City> city)
+    {
+        // Print header
+        System.out.println("Here is a report of cities by descending their populations");
+        System.out.println(String.format("%-10s %-15s %-20s %-20s %-20s", "City ID", "Name", "Country Code", "District", "Population" ));
+        // Loop over all employees in the list
+        for (City cty : city)
+        {
+            String cty_string =
+                    String.format("%-10s %-15s %-20s %-20s %-20s",
+                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
+            System.out.println(cty_string);
+        }
     }
 }
