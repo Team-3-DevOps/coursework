@@ -1,0 +1,34 @@
+@startuml
+
+actor user as "The user"
+
+rectangle Database
+
+rectangle "Organize cities Report function" {
+
+
+    usecase world as "Choose world"
+    usecase continent as "Choose continent"
+    usecase region as "Choose region"
+    usecase country as "Choose country"
+    usecase district as "Choose district"
+    usecase cc as "Choose category"
+    usecase UC as "Get population of the cities
+        in the world, continent or region
+        by largest to smallest"
+
+    user -- UC
+    user -- cc
+    cc <.. world : include
+    cc <.. continent : include
+    cc <.. region : include
+    cc <.. country : include
+    cc <.. district : include
+
+    UC -- Database
+    cc -- Database
+
+
+}
+
+@enduml

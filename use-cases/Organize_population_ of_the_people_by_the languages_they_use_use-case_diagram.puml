@@ -1,0 +1,21 @@
+@startuml
+
+actor user as "The user"
+
+rectangle Database
+
+rectangle "Organize population of people by the language they use Report function" {
+
+
+
+    usecase UC as "Get the number of people who speak in different languages by largest to smallest"
+    usecase percentage as "Get percentage of people who speak in each language"
+    user - UC
+
+
+    UC - Database
+    percentage ..> UC : include
+
+}
+
+@enduml
