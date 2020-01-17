@@ -6,6 +6,11 @@
 - Code of conduct, product backlog, contribution spreedsheet are submitted on github conducting with Markdown Language.  
 - Any issues happened in this coursework, can be seen in issues menu of coursework.
 
+### Code Review 2
+- Checklists of code review 2 are finished as you can see in project of Team-3-DevOps but this time, Zube Agile Project Management tool is integrated. User stories issues and sprints broad are applied for relative tasks.  
+- Use case diagram and full use cases are properly defined.
+- Projet Requirement meets to 8 tasks among 33 tasks.
+
 ## Software Engineering Methods
 - Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
 - Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
