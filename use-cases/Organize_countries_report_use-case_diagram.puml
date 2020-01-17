@@ -17,9 +17,9 @@ rectangle "Organize Countries Report function" {
 
     user -- UC
     user -- cc
-    cc <-- world : include
-    cc <-- continent : include
-    cc <-- region : include
+    cc <.. world : include
+    cc <.. continent : include
+    cc <.. region : include
 
     UC -- Database
     cc -- Database

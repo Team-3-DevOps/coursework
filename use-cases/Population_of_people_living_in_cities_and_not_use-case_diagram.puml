@@ -20,9 +20,9 @@ rectangle "Population of people, people living in cities and people not liviing 
 
     user -- getcontinent
     user -- cc
-    cc <-- country : include
-    cc <-- region : include
-    cc <-- continent : include
+    cc <.. country : include
+    cc <.. region : include
+    cc <.. continent : include
     user -- getcountry
     user -- getregion
 

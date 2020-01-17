@@ -18,9 +18,9 @@ rectangle "Top N populated countries report function" {
     user -- UC
     user -- cc
     user -- N
-    cc <-- world : include
-    cc <-- continent : include
-    cc <-- region : include
+    cc <.. world : include
+    cc <.. continent : include
+    cc <.. region : include
 
     UC -- Database
     cc -- Database

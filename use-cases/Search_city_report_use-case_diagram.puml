@@ -20,11 +20,11 @@ rectangle "Top N populated cities report function" {
     user -- UC
     user -- cc
     user -- N
-    cc <-- world : include
-    cc <-- continent : include
-    cc <-- region : include
-    cc <-- country : include
-    cc <-- district : include
+    cc <.. world : include
+    cc <.. continent : include
+    cc <.. region : include
+    cc <.. country : include
+    cc <.. district : include
 
     UC --- Database
     cc -- Database
