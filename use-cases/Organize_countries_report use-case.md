@@ -28,11 +28,11 @@ No report is produced.
 
 ### Primary Actor
 
-user
+the user
 
 ### Trigger
 
-the user wants to.
+the user's request.
 
 ## MAIN SUCCESS SCENARIO
 

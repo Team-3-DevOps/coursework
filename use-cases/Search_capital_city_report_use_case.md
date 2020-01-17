@@ -27,7 +27,7 @@ No report is produced.
 
 ### Primary Actor
 
-user
+the user
 
 ### Trigger
 
