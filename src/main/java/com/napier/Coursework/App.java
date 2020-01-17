@@ -80,7 +80,7 @@ private Connection con = null;
 //        ArrayList<City> city = a.getAllCities();
 
         // Extract cities in continent by descended population
-        ArrayList<City> city = a.getAllCitiesInContinent();
+        ArrayList<City> city = a.getAllCitiesInDistrict();
 
         // Print all the city information
         a.printCityInfo(city);
@@ -168,6 +168,122 @@ private Connection con = null;
         }
     }
 
+
+    /**
+     * Gets all the current cities in the region ordering by population
+     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     */
+    public ArrayList<City> getAllCitiesInRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Region " +
+                            "FROM city, country WHERE city.CountryCode = country.Code and country.Region = 'Caribbean' " +
+                            "ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<City> city = new ArrayList<City>();
+            while (rset.next())
+            {
+
+                City cty = new City();
+                cty.ID = rset.getInt("city.ID");
+                cty.Name = rset.getString("city.Name");
+                cty.CountryCode = rset.getString("city.CountryCode");
+                cty.District = rset.getString("city.District");
+                cty.Population = rset.getInt("city.Population");
+                city.add(cty);
+            }
+            return city;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+
+
+    /**
+     * Gets all the current cities in the region ordering by population
+     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     */
+    public ArrayList<City> getAllCitiesInCountry()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Name " +
+                            "FROM city, country WHERE city.CountryCode = country.Code and country.Name = 'Australia' " +
+                            "ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<City> city = new ArrayList<City>();
+            while (rset.next())
+            {
+
+                City cty = new City();
+                cty.ID = rset.getInt("city.ID");
+                cty.Name = rset.getString("city.Name");
+                cty.CountryCode = rset.getString("city.CountryCode");
+                cty.District = rset.getString("city.District");
+                cty.Population = rset.getInt("city.Population");
+                city.add(cty);
+            }
+            return city;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+
+
+    public ArrayList<City> getAllCitiesInDistrict()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT * FROM city WHERE city.District = 'Kabol' ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<City> city = new ArrayList<City>();
+            while (rset.next())
+            {
+                City cty = new City();
+                cty.ID = rset.getInt("city.ID");
+                cty.Name = rset.getString("city.Name");
+                cty.CountryCode = rset.getString("city.CountryCode");
+                cty.District = rset.getString("city.District");
+                cty.Population = rset.getInt("city.Population");
+                city.add(cty);
+            }
+            return city;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+
     /**
      * Prints a list of cities.
      * @param city The list of cities to print.
@@ -176,13 +292,13 @@ private Connection con = null;
     {
         // Print header
         System.out.println("Here is a report of cities by descending their populations");
-        System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s %-20s", "City ID", "Name", "Country Code", "District", "Population", "Continent" ));
+        System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population" ));
         // Loop over all employees in the list
         for (City cty : city)
         {
             String cty_string =
-                    String.format("%-20s %-50s %-20s %-50s %-50s %-20s",
-                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population, cty.Continent);
+                    String.format("%-20s %-50s %-20s %-50s %-50s",
+                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
             System.out.println(cty_string);
         }
     }
