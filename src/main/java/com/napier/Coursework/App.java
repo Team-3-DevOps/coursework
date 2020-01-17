@@ -2,6 +2,8 @@ package com.napier.Coursework;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class App
 {      /**
@@ -69,6 +71,17 @@ private Connection con = null;
         }
     }
     /**
+     * Get input data from the User.
+     */
+    public void input()
+    {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter input text: ");
+        String myString = input.next();
+        System.out.println("Text entered = " + myString);
+    }
+    /**
      * Gets all the countries in the world by largest population to smallest.
      * @return A list of all countries and population, or null if there is an error.
      */
@@ -119,8 +132,10 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT country.Name, country.Population " +
-                            " FROM country " + "ORDER BY country.Population DESC";
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital  "
+                            + "FROM country "
+                            + "WHERE country.Continent = 'Asia' "
+                            + "ORDER BY country.Population DESC";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -129,8 +144,53 @@ private Connection con = null;
             while (rset.next())
             {
                 Country ctry = new Country();
+                ctry.code = rset.getString("country.code");
                 ctry.name = rset.getString("country.name");
+                ctry.continent = rset.getString("country.continent");
+                ctry.region = rset.getString("country.region");
                 ctry.population = rset.getInt("country.population");
+                ctry.capital = rset.getInt("country.capital");
+                countries.add(ctry);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+    /**
+     * Gets all the countries in a region by largest population to smallest.
+     * @return A list of all countries and population, or null if there is an error.
+     */
+    public ArrayList<Country> getAllCountriesInRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital  "
+                            + "FROM country "
+                            + "WHERE country.Region = 'Southeast Asia' "
+                            + "ORDER BY country.Population DESC";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract country information
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country ctry = new Country();
+                ctry.code = rset.getString("country.code");
+                ctry.name = rset.getString("country.name");
+                ctry.continent = rset.getString("country.continent");
+                ctry.region = rset.getString("country.region");
+                ctry.population = rset.getInt("country.population");
+                ctry.capital = rset.getInt("country.capital");
                 countries.add(ctry);
             }
             return countries;
@@ -167,7 +227,9 @@ private Connection con = null;
         a.connect();
 
         // Extract country population information
-        ArrayList<Country> countries = a.getAllCountries();
+        //ArrayList<Country> countries = a.getAllCountries();
+        //ArrayList<Country> countries = a.getAllCountriesInContinent();
+        ArrayList<Country> countries = a.getAllCountriesInRegion();
         a.printCountries(countries);
 
         // Test the size of the returned data - should be
