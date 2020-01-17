@@ -1,0 +1,37 @@
+@startuml
+
+actor user as "The user"
+
+rectangle Database
+
+rectangle "Population of people, people living in cities and people not liviing  report function" {
+
+
+    usecase country as "Choose country"
+    usecase continent as "Choose continent"
+    usecase region as "Choose region"
+    usecase cc as "choose category"
+    usecase getcontinent as "Get the population of people, people living in cities,
+    and people not living in cities in each continent"
+    usecase getregion as "Get the population of people, people living in cities,
+    and people not living in cities in each region"
+    usecase getcountry as "Get the population of people, people living in cities,
+        and people not living in cities in each country"
+
+    user -- getcontinent
+    user -- cc
+    cc <-- country : include
+    cc <-- region : include
+    cc <-- continent : include
+    user -- getcountry
+    user -- getregion
+
+    getcontinent -- Database
+    getregion -- Database
+    getcountry ---Database
+    cc --- Database
+
+
+}
+
+@enduml

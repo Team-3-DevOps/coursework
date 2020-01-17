@@ -16,7 +16,7 @@ Primary task.
 
 ### Preconditions
 
-Database contains current capital cities' data.
+Database contains current capital cities' data in table "country".
 
 ### Success End Condition
 

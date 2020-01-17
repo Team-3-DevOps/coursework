@@ -31,7 +31,7 @@ user
 
 ### Trigger
 
-the user wants to.
+the user' request.
 
 ## MAIN SUCCESS SCENARIO
 

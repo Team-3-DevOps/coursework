@@ -1,0 +1,29 @@
+@startuml
+
+actor user as "The user"
+
+rectangle Database
+
+rectangle "Organize Capital cities Report function" {
+
+
+    usecase world as "Choose world"
+    usecase cc as "choose category"
+    usecase continent as "Choose continent"
+    usecase region as "Choose region"
+    usecase UC as "Get population of the capital cities
+        in the world, continent or region
+        by largest to smallest"
+
+    user -- UC
+    user -- cc
+    cc <-- world : include
+    cc <-- continent : include
+    cc <-- region : include
+
+    UC -- Database
+    cc --- Database
+
+}
+
+@enduml

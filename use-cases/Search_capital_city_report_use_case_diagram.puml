@@ -1,0 +1,31 @@
+@startuml
+
+actor user as "The user"
+
+rectangle Database
+
+rectangle "Top N populated capital cities report function" {
+
+
+    usecase world as "Choose world"
+    usecase cc as "choose category"
+    usecase continent as "Choose continent"
+    usecase region as "Choose region"
+    usecase N as "Enter a number N "
+    usecase UC as "Get The top N populated capital cities
+    in the world where N is provided by the user."
+
+    user -- UC
+    user -- cc
+    user -- N
+    cc <-- world : include
+    cc <-- continent :include
+    cc <-- region :include
+
+    UC -- Database
+    cc --- Database
+    N- Database
+
+}
+
+@enduml
