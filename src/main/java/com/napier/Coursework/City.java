@@ -29,10 +29,7 @@ public class City {
      * City population
      */
     protected int Population;
-    /**
-     * City's continent
-     */
-    protected String Continent;
+
 
 }
 
