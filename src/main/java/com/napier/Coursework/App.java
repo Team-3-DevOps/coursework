@@ -1,6 +1,7 @@
 package com.napier.Coursework;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class App
 {      /**
@@ -67,6 +68,96 @@ private Connection con = null;
             }
         }
     }
+    /**
+     * Gets all the countries in the world by largest population to smallest.
+     * @return A list of all countries and population, or null if there is an error.
+     */
+    public ArrayList<Country> getAllCountries()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital  " +
+                    " FROM country " + "ORDER BY country.Population DESC";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract country information
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country ctry = new Country();
+                ctry.code = rset.getString("country.code");
+                ctry.name = rset.getString("country.name");
+                ctry.continent = rset.getString("country.continent");
+                ctry.region = rset.getString("country.region");
+                ctry.population = rset.getInt("country.population");
+                ctry.capital = rset.getInt("country.capital");
+                countries.add(ctry);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+    /**
+     * Gets all the countries in a continent by largest population to smallest.
+     * @return A list of all countries and population, or null if there is an error.
+     */
+    public ArrayList<Country> getAllCountriesInContinent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT country.Name, country.Population " +
+                            " FROM country " + "ORDER BY country.Population DESC";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract country information
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country ctry = new Country();
+                ctry.name = rset.getString("country.name");
+                ctry.population = rset.getInt("country.population");
+                countries.add(ctry);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+    /**
+     * Prints a list of countries.
+     * @param countries The list of countries to print.
+     */
+    public void printCountries(ArrayList<Country> countries)
+    {
+        // Print header
+        System.out.println(String.format("%-10s %-60s %-20s %-30s %-15s %-10s", "Code", "Country", "Continent", "Region", "Population", "Capitals"));
+        // Loop over all countries in the list
+        for (Country ctry : countries)
+        {
+            String ctry_string =
+                    String.format("%-10s %-60s %-20s %-30s %-15s %-10s" , ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population, ctry.capital);
+            System.out.println(ctry_string);
+        }
+    }
     public static void main(String[] args)
     {
         // Create new Application
@@ -74,6 +165,13 @@ private Connection con = null;
 
         // Connect to database
         a.connect();
+
+        // Extract country population information
+        ArrayList<Country> countries = a.getAllCountries();
+        a.printCountries(countries);
+
+        // Test the size of the returned data - should be
+        System.out.println(countries.size());
 
         // Disconnect from database
         a.disconnect();
