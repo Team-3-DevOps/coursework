@@ -77,7 +77,10 @@ private Connection con = null;
         a.connect();
 
         // Extract cities by descended population
-        ArrayList<City> city = a.getAllCity();
+//        ArrayList<City> city = a.getAllCities();
+
+        // Extract cities in continent by descended population
+        ArrayList<City> city = a.getAllCitiesInContinent();
 
         // Print all the city information
         a.printCityInfo(city);
@@ -88,10 +91,10 @@ private Connection con = null;
 
 
     /**
-     * Gets all the current in the world ordering by population
-     * @return A list of all city names and their population, or null if there is an error.
+     * Gets all the current cities in the world ordering by population
+     * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllCity()
+    public ArrayList<City> getAllCities()
     {
         try
         {
@@ -124,6 +127,47 @@ private Connection con = null;
         }
     }
 
+
+    /**
+     * Gets all the current cities in the continent ordering by population
+     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     */
+    public ArrayList<City> getAllCitiesInContinent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent " +
+                            "FROM city, country WHERE city.CountryCode = country.Code and country.Continent = 'Asia' " +
+                            "ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<City> city = new ArrayList<City>();
+            while (rset.next())
+            {
+
+                City cty = new City();
+                cty.ID = rset.getInt("city.ID");
+                cty.Name = rset.getString("city.Name");
+                cty.CountryCode = rset.getString("city.CountryCode");
+                cty.District = rset.getString("city.District");
+                cty.Population = rset.getInt("city.Population");
+                city.add(cty);
+            }
+            return city;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+
     /**
      * Prints a list of cities.
      * @param city The list of cities to print.
@@ -132,13 +176,13 @@ private Connection con = null;
     {
         // Print header
         System.out.println("Here is a report of cities by descending their populations");
-        System.out.println(String.format("%-10s %-15s %-20s %-20s %-20s", "City ID", "Name", "Country Code", "District", "Population" ));
+        System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s %-20s", "City ID", "Name", "Country Code", "District", "Population", "Continent" ));
         // Loop over all employees in the list
         for (City cty : city)
         {
             String cty_string =
-                    String.format("%-10s %-15s %-20s %-20s %-20s",
-                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
+                    String.format("%-20s %-50s %-20s %-50s %-50s %-20s",
+                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population, cty.Continent);
             System.out.println(cty_string);
         }
     }

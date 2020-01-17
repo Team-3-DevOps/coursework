@@ -8,27 +8,31 @@ public class City {
     /**
      * City ID
      */
-    public int ID;
+    protected int ID;
 
     /**
      * City Name
      */
-    public String Name;
+    protected String Name;
 
     /**
      * City's country code
      */
-    public String CountryCode;
+    protected String CountryCode;
 
     /**
      * district of the city
      */
-    public String District;
+    protected String District;
 
     /**
      * City population
      */
-    public int Population;
+    protected int Population;
+    /**
+     * City's continent
+     */
+    protected String Continent;
 
 }
 
