@@ -2,7 +2,6 @@ package com.napier.Coursework;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class App
@@ -70,17 +69,7 @@ private Connection con = null;
             }
         }
     }
-    /**
-     * Get input data from the User.
-     */
-    public void input()
-    {
-        Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter input text: ");
-        String myString = input.next();
-        System.out.println("Text entered = " + myString);
-    }
     /**
      * Gets all the countries in the world by largest population to smallest.
      * @return A list of all countries and population, or null if there is an error.
@@ -103,12 +92,12 @@ private Connection con = null;
             while (rset.next())
             {
                 Country ctry = new Country();
-                ctry.code = rset.getString("country.code");
-                ctry.name = rset.getString("country.name");
-                ctry.continent = rset.getString("country.continent");
-                ctry.region = rset.getString("country.region");
-                ctry.population = rset.getInt("country.population");
-                ctry.capital = rset.getInt("country.capital");
+                ctry.setCode(rset.getString("country.code"));
+                ctry.setName(rset.getString("country.name"));
+                ctry.setContinent(rset.getString("country.continent"));
+                ctry.setRegion(rset.getString("country.region"));
+                ctry.setPopulation(rset.getInt("country.population"));
+                ctry.setCapital(rset.getInt("country.capital"));
                 countries.add(ctry);
             }
             return countries;
@@ -144,12 +133,12 @@ private Connection con = null;
             while (rset.next())
             {
                 Country ctry = new Country();
-                ctry.code = rset.getString("country.code");
-                ctry.name = rset.getString("country.name");
-                ctry.continent = rset.getString("country.continent");
-                ctry.region = rset.getString("country.region");
-                ctry.population = rset.getInt("country.population");
-                ctry.capital = rset.getInt("country.capital");
+                ctry.setCode(rset.getString("country.code"));
+                ctry.setName(rset.getString("country.name"));
+                ctry.setContinent(rset.getString("country.continent"));
+                ctry.setRegion(rset.getString("country.region"));
+                ctry.setPopulation(rset.getInt("country.population"));
+                ctry.setCapital(rset.getInt("country.capital"));
                 countries.add(ctry);
             }
             return countries;
@@ -185,12 +174,12 @@ private Connection con = null;
             while (rset.next())
             {
                 Country ctry = new Country();
-                ctry.code = rset.getString("country.code");
-                ctry.name = rset.getString("country.name");
-                ctry.continent = rset.getString("country.continent");
-                ctry.region = rset.getString("country.region");
-                ctry.population = rset.getInt("country.population");
-                ctry.capital = rset.getInt("country.capital");
+                ctry.setCode(rset.getString("country.code"));
+                ctry.setName(rset.getString("country.name"));
+                ctry.setContinent(rset.getString("country.continent"));
+                ctry.setRegion(rset.getString("country.region"));
+                ctry.setPopulation(rset.getInt("country.population"));
+                ctry.setCapital(rset.getInt("country.capital"));
                 countries.add(ctry);
             }
             return countries;
@@ -222,11 +211,11 @@ private Connection con = null;
             while (rset.next())
             {
                 City cty = new City();
-                cty.ID = rset.getInt("city.ID");
-                cty.Name = rset.getString("city.Name");
-                cty.CountryCode = rset.getString("city.CountryCode");
-                cty.District = rset.getString("city.District");
-                cty.Population = rset.getInt("city.Population");
+                cty.setID(rset.getInt("city.ID"));
+                cty.setName(rset.getString("city.Name"));
+                cty.setCountryCode(rset.getString("city.CountryCode"));
+                cty.setDistrict(rset.getString("city.District"));
+                cty.setPopulation(rset.getInt("city.Population"));
                 city.add(cty);
             }
             return city;
@@ -259,11 +248,11 @@ private Connection con = null;
             while (rset.next())
             {
                 City cty = new City();
-                cty.ID = rset.getInt("city.ID");
-                cty.Name = rset.getString("city.Name");
-                cty.CountryCode = rset.getString("city.CountryCode");
-                cty.District = rset.getString("city.District");
-                cty.Population = rset.getInt("city.Population");
+                cty.setID(rset.getInt("city.ID"));
+                cty.setName(rset.getString("city.Name"));
+                cty.setCountryCode(rset.getString("city.CountryCode"));
+                cty.setDistrict(rset.getString("city.District"));
+                cty.setPopulation(rset.getInt("city.Population"));
                 city.add(cty);
 
 
@@ -300,11 +289,11 @@ private Connection con = null;
             {
 
                 City cty = new City();
-                cty.ID = rset.getInt("city.ID");
-                cty.Name = rset.getString("city.Name");
-                cty.CountryCode = rset.getString("city.CountryCode");
-                cty.District = rset.getString("city.District");
-                cty.Population = rset.getInt("city.Population");
+                cty.setID(rset.getInt("city.ID"));
+                cty.setName(rset.getString("city.Name"));
+                cty.setCountryCode(rset.getString("city.CountryCode"));
+                cty.setDistrict(rset.getString("city.District"));
+                cty.setPopulation(rset.getInt("city.Population"));
                 city.add(cty);
             }
             return city;
@@ -339,11 +328,11 @@ private Connection con = null;
             {
 
                 City cty = new City();
-                cty.ID = rset.getInt("city.ID");
-                cty.Name = rset.getString("city.Name");
-                cty.CountryCode = rset.getString("city.CountryCode");
-                cty.District = rset.getString("city.District");
-                cty.Population = rset.getInt("city.Population");
+                cty.setID(rset.getInt("city.ID"));
+                cty.setName(rset.getString("city.Name"));
+                cty.setCountryCode(rset.getString("city.CountryCode"));
+                cty.setDistrict(rset.getString("city.District"));
+                cty.setPopulation(rset.getInt("city.Population"));
                 city.add(cty);
             }
             return city;
@@ -376,11 +365,11 @@ private Connection con = null;
             while (rset.next())
             {
                 City cty = new City();
-                cty.ID = rset.getInt("city.ID");
-                cty.Name = rset.getString("city.Name");
-                cty.CountryCode = rset.getString("city.CountryCode");
-                cty.District = rset.getString("city.District");
-                cty.Population = rset.getInt("city.Population");
+                cty.setID(rset.getInt("city.ID"));
+                cty.setName(rset.getString("city.Name"));
+                cty.setCountryCode(rset.getString("city.CountryCode"));
+                cty.setDistrict(rset.getString("city.District"));
+                cty.setPopulation(rset.getInt("city.Population"));
                 city.add(cty);
             }
             return city;
@@ -401,13 +390,13 @@ private Connection con = null;
     {
         // Print header
         System.out.println("Here is a report of countries by descending their populations");
-        System.out.println(String.format("%-10s %-60s %-20s %-30s %-15s %-10s", "Code", "Country", "Continent", "Region", "Population", "Capitals"));
+        //System.out.println(String.format("%-10s %-60s %-20s %-30s %-15s %-10s", "Code", "Country", "Continent", "Region", "Population", "Capitals"));
         // Loop over all countries in the list
         for (Country ctry : countries)
         {
-            String ctry_string =
-                    String.format("%-10s %-60s %-20s %-30s %-15s %-10s" , ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population, ctry.capital);
-            System.out.println(ctry_string);
+            //String ctry_string =
+                  //  String.format("%-10s %-60s %-20s %-30s %-15s %-10s" , ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population, ctry.capital);
+            System.out.println(ctry);
         }
     }
     /**
@@ -418,14 +407,14 @@ private Connection con = null;
     {
         // Print header
         System.out.println("Here is a report of cities by descending their populations");
-        System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
+        //System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
         // Loop over all employees in the list
         for (City cty : city)
         {
-            String cty_string =
-                    String.format("%-20s %-50s %-20s %-50s %-50s",
-                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
-            System.out.println(cty_string);
+//            String cty_string =
+//                    String.format("%-20s %-50s %-20s %-50s %-50s",
+//                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
+            System.out.println(cty);
         }
     }
     public static void main(String[] args)
@@ -438,7 +427,7 @@ private Connection con = null;
 
         // Extract country population information
         // Extract countries in the world by descending population
-        // ArrayList<Country> countries = a.getAllCountries();
+        ArrayList<Country> countries = a.getAllCountries();
 
         // Extract countries in the continent by descending population
         // ArrayList<Country> countries = a.getAllCountriesInContinent();
@@ -447,7 +436,7 @@ private Connection con = null;
         // ArrayList<Country> countries = a.getAllCountriesInRegion();
 
         // Print format function for countries
-        // a.printCountries(countries);
+        a.printCountries(countries);
 
         // Test the size of the returned data - should be
         // System.out.println(countries.size());

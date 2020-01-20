@@ -4,32 +4,92 @@ public class Country {
     /**
      * Country Code
      */
-    protected String code;
+    private String code;
 
     /**
      * Country Name
      */
-    protected String name;
+    private String name;
 
     /**
      * Country's Continent
      */
-    protected String continent;
+    private String continent;
 
     /**
      * Country's Region
      */
-    protected String region;
+    private String region;
 
     /**
      * Country's Population
      */
-    protected int population;
+    private int population;
 
     /**
      * Country's Capital
      */
-    protected int capital;
+    private int capital;
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", continent='" + continent + '\'' +
+                ", region='" + region + '\'' +
+                ", population=" + population +
+                ", capital=" + capital +
+                '}';
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
+    }
+
+    public void setCapital(int capital) {
+        this.capital = capital;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getContinent() {
+        return continent;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public int getPopulation() {
+        return population;
+    }
+
+    public int getCapital() {
+        return capital;
+    }
 
 
 }
