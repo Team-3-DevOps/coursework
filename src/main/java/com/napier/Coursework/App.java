@@ -1,5 +1,7 @@
 package com.napier.coursework;
 
+// main application for reports
+
 import java.sql.*;
 import java.util.ArrayList;
 
