@@ -1,4 +1,4 @@
-package com.napier.Coursework;
+package com.napier.coursework;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -411,7 +411,7 @@ private Connection con = null;
         // Loop over all employees in the list
         for (City cty : city)
         {
-//            String cty_string =
+//            String cty_stringta =
 //                    String.format("%-20s %-50s %-20s %-50s %-50s",
 //                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
             System.out.println(cty);
@@ -451,13 +451,13 @@ private Connection con = null;
         // ArrayList<City> city = a.getAllCitiesInRegion();
 
         // Extract cities in country by descending population
-        // ArrayList<City> city = a.getAllCitiesInCountry();
+         ArrayList<City> city = a.getAllCitiesInCountry();
 
         // Extract cities in district by descending population
         // ArrayList<City> city = a.getAllCitiesInDistrict();
 
         // Print format function for cities
-        // a.printCityInfo(city);
+         a.printCityInfo(city);
 
         // Test the size of the returned data - should be
         // System.out.println(city.size());
