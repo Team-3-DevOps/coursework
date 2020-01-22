@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.napier.Coursework</groupId>
-    <artifactId>Coursework</artifactId>
+    <groupId>com.napier.coursework</groupId>
+    <artifactId>coursework</artifactId>
     <version>0.1.0.1</version>
 
     <properties>
@@ -27,7 +27,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.napier.Coursework.App</mainClass>
+                            <mainClass>com.napier.coursework.App</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
