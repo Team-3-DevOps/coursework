@@ -1,0 +1,31 @@
+@startuml
+
+actor user as "The user"
+
+rectangle Database
+
+rectangle "Top N populated countries report function" {
+
+
+    usecase world as "Choose world"
+    usecase continent as "Choose continent"
+    usecase region as "Choose region"
+    usecase cc as "Choose category"
+    usecase N as "Enter a number N "
+    usecase UC as "Get The top N populated countries
+    in the world where N is provided by the user."
+
+    user -- UC
+    user -- cc
+    user -- N
+    cc <.. world : include
+    cc <.. continent : include
+    cc <.. region : include
+
+    UC -- Database
+    cc -- Database
+    N -- Database
+
+}
+
+@enduml

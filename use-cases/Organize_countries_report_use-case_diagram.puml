@@ -1,0 +1,29 @@
+@startuml
+
+actor user as "The user"
+
+rectangle Database
+
+rectangle "Organize Countries Report function" {
+
+
+    usecase world as "Choose world"
+    usecase continent as "Choose continent"
+    usecase region as "Choose region"
+    usecase cc as "Choose category"
+    usecase UC as "Get population of the countries
+        in the world, continent or region
+        by largest to smallest"
+
+    user -- UC
+    user -- cc
+    cc <.. world : include
+    cc <.. continent : include
+    cc <.. region : include
+
+    UC -- Database
+    cc -- Database
+
+}
+
+@enduml
