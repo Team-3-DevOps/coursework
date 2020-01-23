@@ -509,6 +509,7 @@ private Connection con = null;
      * Prints a list of countries.
      * @param countries The list of countries to print.
      */
+
     public void printCountries(ArrayList<Country> countries)
     {
         // Print header
@@ -540,6 +541,236 @@ private Connection con = null;
             System.out.println(cty);
         }
     }
+    /**
+     * Gets all the capital cities in the world ordering by population
+     * @return A list of all capital city names, country name and city population, or null if there is an error.
+     */
+    public ArrayList<CapitalCity> getAllCapitalCities()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.Population FROM `city` INNER JOIN country ON country.Capital=city.ID ORDER BY `Population` DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
+            while (rset.next())
+            {
+                CapitalCity capcty = new CapitalCity();
+
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("country.Name"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
+            }
+            return Capcity;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+    /**
+     * Gets all the capital cities in the world ordering by population
+     * @return A list of all capital city names, country name and city  population, or null if there is an error.
+     */
+    public ArrayList<CapitalCity> getTopPopCapitalCities()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.Population FROM `city` INNER JOIN country ON country.Capital=city.ID ORDER BY `Population` DESC LIMIT 10";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
+            while (rset.next())
+            {
+                CapitalCity capcty = new CapitalCity();
+
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("country.Name"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
+            }
+            return Capcity;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+    /**
+     * Gets all the current capital cities in the continent ordering by population
+     * @return A list of all capital city names, country name and city population, or null if there is an error.
+     */
+    public ArrayList<CapitalCity> getAllCapCitiesInContinent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.Population FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Continent='Asia' ORDER BY city.Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
+            while (rset.next())
+            {
+                CapitalCity capcty = new CapitalCity();
+
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("country.Name"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
+            }
+            return Capcity;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+    /**
+     * Gets all the current capital cities in the continent ordering by population
+     * @return A list of all capital city names, country name and city population, or null if there is an error.
+     */
+    public ArrayList<CapitalCity> getTopPopCapCitiesInContinent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.Population FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Continent='Asia' ORDER BY city.Population DESC LIMIT 10 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
+            while (rset.next())
+            {
+                CapitalCity capcty = new CapitalCity();
+
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("country.Name"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
+            }
+            return Capcity;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+
+
+    /**
+     * Gets all the current capital cities in the region ordering by population
+     * @return A list of all capital city names, country name, city population, or null if there is an error.
+     */
+    public ArrayList<CapitalCity> getAllCapCitiesInRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT  city.Name, country.Name, city.Population  FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Region='Caribbean' ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
+            while (rset.next())
+            {
+                CapitalCity capcty = new CapitalCity();
+
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("country.Name"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
+            }
+            return Capcity;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+    /**
+     * Gets all the current capital cities in the region ordering by population
+     * @return A list of all city names, country name, city population, or null if there is an error.
+     */
+    public ArrayList<CapitalCity> getTopPopCapCitiesInRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT  city.Name, country.Name, city.Population  FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Region='Caribbean' ORDER BY Population DESC LIMIT 10 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
+            while (rset.next())
+            {
+                CapitalCity capcty = new CapitalCity();
+
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("country.Name"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
+            }
+            return Capcity;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+    /**
+     * Prints a list of cities.
+     * @param Capcity The list of cities to print.
+     */
+    public void printCapitalCityInfo(ArrayList<CapitalCity> Capcity)
+    {
+        // Print header
+        System.out.println("Here is a report of cities by descending their populations");
+        //System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
+        // Loop over all employees in the list
+        for (CapitalCity capcty : Capcity)
+        {
+//            String cty_stringta =
+//                    String.format("%-20s %-50s %-20s %-50s %-50s",
+//                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
+            System.out.println(capcty);
+        }
+    }
     public static void main(String[] args)
     {
         // Create new Application
@@ -552,8 +783,10 @@ private Connection con = null;
         // Extract countries in the world by descending population
         // ArrayList<Country> countries = a.getAllCountries();
 
+
         // Extract top N populated countries in the world by descending population
         // ArrayList<Country> countries = a.getTopPopCountriesInWorld();
+
 
         // Extract countries in the continent by descending population
         // ArrayList<Country> countries = a.getAllCountriesInContinent();
@@ -568,7 +801,7 @@ private Connection con = null;
         // ArrayList<Country> countries = a.getAllCountriesInRegion();
 
         // Print format function for countries
-        a.printCountries(countries);
+        // a.printCountries(countries);
 
         // Test the size of the returned data - should be
         // System.out.println(countries.size());
@@ -594,7 +827,26 @@ private Connection con = null;
         // Test the size of the returned data - should be
         // System.out.println(city.size());
 
+        // Extract cities in the world by descending population
+        // ArrayList<CapitalCity> capcity = a.getAllCapitalCities();
 
+        // Extract cities in the world by descending population
+         //ArrayList<CapitalCity> capcity = a.getTopPopCapitalCities();
+
+        // Extract cities in continent by descending population
+         //ArrayList<CapitalCity> capcity = a.getAllCapCitiesInContinent();
+
+        // Extract cities in continent by descending population
+        //ArrayList<CapitalCity> capcity = a.getTopPopCapCitiesInContinent();
+
+        // Extract cities in region by descending population
+        // ArrayList<CapitalCity> capcity = a.getAllCapCitiesInRegion();
+
+        // Extract cities in region by descending population
+         ArrayList<CapitalCity> capcity = a.getTopPopCapCitiesInRegion();
+
+        // Print format function for cities
+         a.printCapitalCityInfo(capcity);
 
         // Disconnect from database
         a.disconnect();
