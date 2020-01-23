@@ -442,7 +442,7 @@ private Connection con = null;
                 CapitalCity capcty = new CapitalCity();
 
                 capcty.setName(rset.getString("city.Name"));
-                capcty.setCountry(rset.getString("city.Country"));
+                capcty.setCountry(rset.getString("country.Name"));
                 capcty.setPopulation(rset.getInt("city.Population"));
                 Capcity.add(capcty);
             }
@@ -477,7 +477,7 @@ private Connection con = null;
                 CapitalCity capcty = new CapitalCity();
 
                 capcty.setName(rset.getString("city.Name"));
-                capcty.setCountry(rset.getString("city.Country"));
+                capcty.setCountry(rset.getString("country.Name"));
                 capcty.setPopulation(rset.getInt("city.Population"));
                 Capcity.add(capcty);
             }
@@ -514,7 +514,7 @@ private Connection con = null;
                 CapitalCity capcty = new CapitalCity();
 
                 capcty.setName(rset.getString("city.Name"));
-                capcty.setCountry(rset.getString("city.Country"));
+                capcty.setCountry(rset.getString("country.Name"));
                 capcty.setPopulation(rset.getInt("city.Population"));
                 Capcity.add(capcty);
             }
@@ -529,7 +529,7 @@ private Connection con = null;
     }
     /**
      * Prints a list of cities.
-     * @param city The list of cities to print.
+     * @param Capcity The list of cities to print.
      */
     public void printCapitalCityInfo(ArrayList<CapitalCity> Capcity)
     {
@@ -590,7 +590,17 @@ private Connection con = null;
         // Test the size of the returned data - should be
         // System.out.println(city.size());
 
+        // Extract cities in the world by descending population
+        // ArrayList<CapitalCity> capcity = a.getAllCapitalCities();
 
+        // Extract cities in continent by descending population
+         ArrayList<CapitalCity> capcity = a.getAllCapCitiesInContinent();
+
+        // Extract cities in region by descending population
+        // ArrayList<CapitalCity> capcity = a.getAllCapCitiesInRegion();
+
+        // Print format function for cities
+         a.printCapitalCityInfo(capcity);
 
         // Disconnect from database
         a.disconnect();
