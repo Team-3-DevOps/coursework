@@ -504,7 +504,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT  city.Name, country.Name, city.Population  FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Region='Caribbean' ORDER BY Population DESC";
+                    "SELECT  city.Name, country.Name, city.Population  FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Region='Caribbean' ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -594,10 +594,10 @@ private Connection con = null;
         // ArrayList<CapitalCity> capcity = a.getAllCapitalCities();
 
         // Extract cities in continent by descending population
-         ArrayList<CapitalCity> capcity = a.getAllCapCitiesInContinent();
+         //ArrayList<CapitalCity> capcity = a.getAllCapCitiesInContinent();
 
         // Extract cities in region by descending population
-        // ArrayList<CapitalCity> capcity = a.getAllCapCitiesInRegion();
+         ArrayList<CapitalCity> capcity = a.getAllCapCitiesInRegion();
 
         // Print format function for cities
          a.printCapitalCityInfo(capcity);
