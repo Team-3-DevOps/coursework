@@ -388,6 +388,7 @@ private Connection con = null;
      * Prints a list of countries.
      * @param countries The list of countries to print.
      */
+
     public void printCountries(ArrayList<Country> countries)
     {
         // Print header
@@ -417,6 +418,119 @@ private Connection con = null;
 //                    String.format("%-20s %-50s %-20s %-50s %-50s",
 //                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
             System.out.println(cty);
+        }
+    }
+    /**
+     * Gets all the current cities in the world ordering by population
+     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     */
+    public ArrayList<CapitalCity> getAllCapitalCities()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Name, country.Name, city.Population FROM `city` INNER JOIN country ON country.Capital=city.ID ORDER BY `Population` DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
+            while (rset.next())
+            {
+                CapitalCity capcty = new CapitalCity();
+
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("city.Country"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
+            }
+            return Capcity;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+    /**
+     * Gets all the current cities in the continent ordering by population
+     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     */
+    public ArrayList<City> getAllCitiesInContinent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Continent='Asia' ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<City> city = new ArrayList<City>();
+
+            while (rset.next())
+            {
+                City cty = new City();
+                cty.setID(rset.getInt("city.ID"));
+                cty.setName(rset.getString("city.Name"));
+                cty.setCountryCode(rset.getString("city.CountryCode"));
+                cty.setDistrict(rset.getString("city.District"));
+                cty.setPopulation(rset.getInt("city.Population"));
+                city.add(cty);
+
+
+            }
+            return city;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+
+
+    /**
+     * Gets all the current cities in the region ordering by population
+     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     */
+    public ArrayList<City> getAllCitiesInRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Region='Caribbean' ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<City> city = new ArrayList<City>();
+            while (rset.next())
+            {
+
+                City cty = new City();
+                cty.setID(rset.getInt("city.ID"));
+                cty.setName(rset.getString("city.Name"));
+                cty.setCountryCode(rset.getString("city.CountryCode"));
+                cty.setDistrict(rset.getString("city.District"));
+                cty.setPopulation(rset.getInt("city.Population"));
+                city.add(cty);
+            }
+            return city;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
         }
     }
     public static void main(String[] args)
