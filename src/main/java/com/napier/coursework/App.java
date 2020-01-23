@@ -421,8 +421,8 @@ private Connection con = null;
         }
     }
     /**
-     * Gets all the current cities in the world ordering by population
-     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     * Gets all the capital cities in the world ordering by population
+     * @return A list of all capital city names, country name and city population, or null if there is an error.
      */
     public ArrayList<CapitalCity> getAllCapitalCities()
     {
@@ -456,8 +456,8 @@ private Connection con = null;
         }
     }
     /**
-     * Gets all the current cities in the world ordering by population
-     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     * Gets all the capital cities in the world ordering by population
+     * @return A list of all capital city names, country name and city  population, or null if there is an error.
      */
     public ArrayList<CapitalCity> getTopPopCapitalCities()
     {
@@ -491,8 +491,8 @@ private Connection con = null;
         }
     }
     /**
-     * Gets all the current cities in the continent ordering by population
-     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     * Gets all the current capital cities in the continent ordering by population
+     * @return A list of all capital city names, country name and city population, or null if there is an error.
      */
     public ArrayList<CapitalCity> getAllCapCitiesInContinent()
     {
@@ -526,8 +526,8 @@ private Connection con = null;
         }
     }
     /**
-     * Gets all the current cities in the continent ordering by population
-     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     * Gets all the current capital cities in the continent ordering by population
+     * @return A list of all capital city names, country name and city population, or null if there is an error.
      */
     public ArrayList<CapitalCity> getTopPopCapCitiesInContinent()
     {
@@ -563,8 +563,8 @@ private Connection con = null;
 
 
     /**
-     * Gets all the current cities in the region ordering by population
-     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     * Gets all the current capital cities in the region ordering by population
+     * @return A list of all capital city names, country name, city population, or null if there is an error.
      */
     public ArrayList<CapitalCity> getAllCapCitiesInRegion()
     {
@@ -598,8 +598,8 @@ private Connection con = null;
         }
     }
     /**
-     * Gets all the current cities in the region ordering by population
-     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     * Gets all the current capital cities in the region ordering by population
+     * @return A list of all city names, country name, city population, or null if there is an error.
      */
     public ArrayList<CapitalCity> getTopPopCapCitiesInRegion()
     {
