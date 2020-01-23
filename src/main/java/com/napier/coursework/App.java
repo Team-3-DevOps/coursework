@@ -459,7 +459,7 @@ private Connection con = null;
      * Gets all the current cities in the continent ordering by population
      * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllCitiesInContinent()
+    public ArrayList<CapitalCity> getAllCapCitiesInContinent()
     {
         try
         {
@@ -467,25 +467,21 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Continent='Asia' ORDER BY Population DESC";
+                    "SELECT city.Name, country.Name, city.Population FROM city INNER JOIN country ON country.Capital=city.ID = country.Code WHERE country.Continent='Asia' ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
-            ArrayList<City> city = new ArrayList<City>();
-
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
             while (rset.next())
             {
-                City cty = new City();
-                cty.setID(rset.getInt("city.ID"));
-                cty.setName(rset.getString("city.Name"));
-                cty.setCountryCode(rset.getString("city.CountryCode"));
-                cty.setDistrict(rset.getString("city.District"));
-                cty.setPopulation(rset.getInt("city.Population"));
-                city.add(cty);
+                CapitalCity capcty = new CapitalCity();
 
-
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("city.Country"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
             }
-            return city;
+            return Capcity;
         }
         catch (Exception e)
         {
@@ -500,7 +496,7 @@ private Connection con = null;
      * Gets all the current cities in the region ordering by population
      * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllCitiesInRegion()
+    public ArrayList<CapitalCity> getAllCapCitiesInRegion()
     {
         try
         {
@@ -508,29 +504,45 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Region='Caribbean' ORDER BY Population DESC";
+                    "SELECT  city.Name, country.Name, city.Population  FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Region='Caribbean' ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
-            ArrayList<City> city = new ArrayList<City>();
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
             while (rset.next())
             {
+                CapitalCity capcty = new CapitalCity();
 
-                City cty = new City();
-                cty.setID(rset.getInt("city.ID"));
-                cty.setName(rset.getString("city.Name"));
-                cty.setCountryCode(rset.getString("city.CountryCode"));
-                cty.setDistrict(rset.getString("city.District"));
-                cty.setPopulation(rset.getInt("city.Population"));
-                city.add(cty);
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("city.Country"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
             }
-            return city;
+            return Capcity;
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get salary details");
             return null;
+        }
+    }
+    /**
+     * Prints a list of cities.
+     * @param city The list of cities to print.
+     */
+    public void printCapitalCityInfo(ArrayList<CapitalCity> Capcity)
+    {
+        // Print header
+        System.out.println("Here is a report of cities by descending their populations");
+        //System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
+        // Loop over all employees in the list
+        for (CapitalCity capcty : Capcity)
+        {
+//            String cty_stringta =
+//                    String.format("%-20s %-50s %-20s %-50s %-50s",
+//                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
+            System.out.println(capcty);
         }
     }
     public static void main(String[] args)
@@ -543,7 +555,7 @@ private Connection con = null;
 
         // Extract country population information
         // Extract countries in the world by descending population
-        ArrayList<Country> countries = a.getAllCountries();
+        // ArrayList<Country> countries = a.getAllCountries();
 
         // Extract countries in the continent by descending population
         // ArrayList<Country> countries = a.getAllCountriesInContinent();
@@ -552,7 +564,7 @@ private Connection con = null;
         // ArrayList<Country> countries = a.getAllCountriesInRegion();
 
         // Print format function for countries
-        a.printCountries(countries);
+        // a.printCountries(countries);
 
         // Test the size of the returned data - should be
         // System.out.println(countries.size());
@@ -567,13 +579,13 @@ private Connection con = null;
         // ArrayList<City> city = a.getAllCitiesInRegion();
 
         // Extract cities in country by descending population
-         ArrayList<City> city = a.getAllCitiesInCountry();
+        // ArrayList<City> city = a.getAllCitiesInCountry();
 
         // Extract cities in district by descending population
         // ArrayList<City> city = a.getAllCitiesInDistrict();
 
         // Print format function for cities
-         a.printCityInfo(city);
+        // a.printCityInfo(city);
 
         // Test the size of the returned data - should be
         // System.out.println(city.size());
