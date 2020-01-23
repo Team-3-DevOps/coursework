@@ -537,7 +537,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.Population FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Continent='Asia' ORDER BY city.Population DESC";
+                    "SELECT city.Name, country.Name, city.Population FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Continent='Asia' ORDER BY city.Population DESC LIMIT 10 ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -575,6 +575,41 @@ private Connection con = null;
             // Create string for SQL statement
             String strSelect =
                     "SELECT  city.Name, country.Name, city.Population  FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Region='Caribbean' ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
+            while (rset.next())
+            {
+                CapitalCity capcty = new CapitalCity();
+
+                capcty.setName(rset.getString("city.Name"));
+                capcty.setCountry(rset.getString("country.Name"));
+                capcty.setPopulation(rset.getInt("city.Population"));
+                Capcity.add(capcty);
+            }
+            return Capcity;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+    /**
+     * Gets all the current cities in the region ordering by population
+     * @return A list of all city names, country-code, district and their population, or null if there is an error.
+     */
+    public ArrayList<CapitalCity> getTopPopCapCitiesInRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT  city.Name, country.Name, city.Population  FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Region='Caribbean' ORDER BY Population DESC LIMIT 10 ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -668,11 +703,15 @@ private Connection con = null;
 
         // Extract cities in continent by descending population
          //ArrayList<CapitalCity> capcity = a.getAllCapCitiesInContinent();
+
         // Extract cities in continent by descending population
-        ArrayList<CapitalCity> capcity = a.getTopPopCapCitiesInContinent();
+        //ArrayList<CapitalCity> capcity = a.getTopPopCapCitiesInContinent();
 
         // Extract cities in region by descending population
         // ArrayList<CapitalCity> capcity = a.getAllCapCitiesInRegion();
+
+        // Extract cities in region by descending population
+         ArrayList<CapitalCity> capcity = a.getTopPopCapCitiesInRegion();
 
         // Print format function for cities
          a.printCapitalCityInfo(capcity);
