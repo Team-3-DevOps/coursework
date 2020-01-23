@@ -467,7 +467,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name, country.Name, city.Population FROM city INNER JOIN country ON country.Capital=city.ID = country.Code WHERE country.Continent='Asia' ORDER BY Population DESC";
+                    "SELECT city.Name, country.Name, city.Population FROM city INNER JOIN country ON country.Capital=city.ID WHERE country.Continent='Asia' ORDER BY city.Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
