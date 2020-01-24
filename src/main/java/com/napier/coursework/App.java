@@ -978,12 +978,20 @@ private Connection con = null;
      */
     public void printCapitalCityInfo(ArrayList<CapitalCity> Capcity)
     {
+        // Check capital cities is not null
+        if (Capcity == null)
+        {
+            System.out.println("No capital cities");
+            return;
+        }
         // Print header
         System.out.println("Here is a report of capital cities by descending their populations");
         //System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
         // Loop over all employees in the list
         for (CapitalCity capcty : Capcity)
         {
+            if (capcty == null)
+                continue;
 //            String cty_stringta =
 //                    String.format("%-20s %-50s %-20s %-50s %-50s",
 //                            city.Name, country.Name, city.Population);
@@ -997,12 +1005,20 @@ private Connection con = null;
      */
     public void printCountries(ArrayList<Country> countries)
     {
+        // Check countries is not null
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         // Print header
         System.out.println("Here is a report of countries by descending their populations");
         //System.out.println(String.format("%-10s %-60s %-20s %-30s %-15s %-10s", "Code", "Country", "Continent", "Region", "Population", "Capitals"));
         // Loop over all countries in the list
         for (Country ctry : countries)
         {
+            if (ctry == null)
+                continue;
             //String ctry_string =
             //  String.format("%-10s %-60s %-20s %-30s %-15s %-10s" , ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population, ctry.capital);
             System.out.println(ctry);
@@ -1014,12 +1030,20 @@ private Connection con = null;
      */
     public void printCityInfo(ArrayList<City> city)
     {
+        // Check cities is not null
+        if (city == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         // Print header
         System.out.println("Here is a report of cities by descending their populations");
         //System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
         // Loop over all employees in the list
         for (City cty : city)
         {
+            if (cty == null)
+                continue;
 //            String cty_string =
 //                    String.format("%-20s %-50s %-20s %-50s %-50s",
 //                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
