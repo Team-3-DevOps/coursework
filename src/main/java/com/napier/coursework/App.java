@@ -112,6 +112,45 @@ private Connection con = null;
         }
     }
     /**
+     * Gets top N populated countries in the world by largest population to smallest.
+     * @return A list of all countries and population, or null if there is an error.
+     */
+    public ArrayList<Country> getTopPopCountriesInWorld()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital  " +
+                            " FROM country " + "ORDER BY country.Population DESC LIMIT 10";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract country information
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country ctry = new Country();
+                ctry.setCode(rset.getString("country.code"));
+                ctry.setName(rset.getString("country.name"));
+                ctry.setContinent(rset.getString("country.continent"));
+                ctry.setRegion(rset.getString("country.region"));
+                ctry.setPopulation(rset.getInt("country.population"));
+                ctry.setCapital(rset.getInt("country.capital"));
+                countries.add(ctry);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+    /**
      * Gets all the countries in a continent by largest population to smallest.
      * @return A list of all countries and population, or null if there is an error.
      */
@@ -126,7 +165,48 @@ private Connection con = null;
                     "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital  "
                             + "FROM country "
                             + "WHERE country.Continent = 'Asia' "
-                            + "ORDER BY country.Population DESC";
+                            + "ORDER BY country.Population DESC ";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract country information
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country ctry = new Country();
+                ctry.setCode(rset.getString("country.code"));
+                ctry.setName(rset.getString("country.name"));
+                ctry.setContinent(rset.getString("country.continent"));
+                ctry.setRegion(rset.getString("country.region"));
+                ctry.setPopulation(rset.getInt("country.population"));
+                ctry.setCapital(rset.getInt("country.capital"));
+                countries.add(ctry);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+    /**
+     * Gets top N populated countries in a continent by largest population to smallest.
+     * @return A list of all countries and population, or null if there is an error.
+     */
+    public ArrayList<Country> getTopPopCountriesInContinent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital  "
+                            + "FROM country "
+                            + "WHERE country.Continent = 'Asia' "
+                            + "ORDER BY country.Population DESC LIMIT 10";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -168,6 +248,47 @@ private Connection con = null;
                             + "FROM country "
                             + "WHERE country.Region = 'Southeast Asia' "
                             + "ORDER BY country.Population DESC";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract country information
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country ctry = new Country();
+                ctry.setCode(rset.getString("country.code"));
+                ctry.setName(rset.getString("country.name"));
+                ctry.setContinent(rset.getString("country.continent"));
+                ctry.setRegion(rset.getString("country.region"));
+                ctry.setPopulation(rset.getInt("country.population"));
+                ctry.setCapital(rset.getInt("country.capital"));
+                countries.add(ctry);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+    /**
+     * Gets top N populated countries in a region by largest population to smallest.
+     * @return A list of all countries and population, or null if there is an error.
+     */
+    public ArrayList<Country> getTopPopCountriesInRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital  "
+                            + "FROM country "
+                            + "WHERE country.Region = 'Southeast Asia' "
+                            + "ORDER BY country.Population DESC LIMIT 10";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -662,8 +783,19 @@ private Connection con = null;
         // Extract countries in the world by descending population
         // ArrayList<Country> countries = a.getAllCountries();
 
+
+        // Extract top N populated countries in the world by descending population
+        // ArrayList<Country> countries = a.getTopPopCountriesInWorld();
+
+
         // Extract countries in the continent by descending population
         // ArrayList<Country> countries = a.getAllCountriesInContinent();
+
+        // Extract top N populated countries in the continent by descending population
+        // ArrayList<Country> countries = a.getTopPopCountriesInContinent();
+
+        // Extract top N populated countries in the region by descending population
+         ArrayList<Country> countries = a.getTopPopCountriesInRegion();
 
         // Extract countries in the region by descending population
         // ArrayList<Country> countries = a.getAllCountriesInRegion();
