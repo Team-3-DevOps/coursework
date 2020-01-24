@@ -833,7 +833,7 @@ private Connection con = null;
         // Extract cities in the world by descending population
          //ArrayList<CapitalCity> capcity = a.getTopPopCapitalCities();
 
-        // Extract cities in continent by descending population
+        // Extract capital cities in continent by descending population
          //ArrayList<CapitalCity> capcity = a.getAllCapCitiesInContinent();
 
         // Extract capital cities in continent by descending population
