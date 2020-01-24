@@ -219,7 +219,7 @@ private Connection con = null;
      * Gets top N populated countries in the world by largest population to smallest.
      * @return A list of all countries and population, or null if there is an error.
      */
-    public ArrayList<Country> getTopPopCountriesInWorld()
+    public ArrayList<Country> getTopPopCountriesInWorld(Integer num)
     {
         try
         {
@@ -460,7 +460,7 @@ private Connection con = null;
      * Gets all the current cities in the region ordering by population
      * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllCitiesInRegion()
+    public ArrayList<City> getAllCitiesInRegion(String str)
     {
         try
         {
@@ -468,7 +468,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Region='Caribbean' ORDER BY Population DESC";
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Region='"+str+"' ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -499,7 +499,7 @@ private Connection con = null;
      * Gets all the current cities in the country ordering by population
      * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllCitiesInCountry()
+    public ArrayList<City> getAllCitiesInCountry(String str)
     {
         try
         {
@@ -507,7 +507,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Name='Myanmar' ORDER BY Population DESC";
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Name='"+str+"' ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -537,7 +537,7 @@ private Connection con = null;
      * Gets all the current cities in the district ordering by population
      * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllCitiesInDistrict()
+    public ArrayList<City> getAllCitiesInDistrict(String str)
     {
         try
         {
@@ -545,7 +545,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT * FROM city WHERE city.District = 'Kabol' ORDER BY Population DESC";
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE city.District='"+str+"' ORDER BY Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -612,7 +612,7 @@ private Connection con = null;
      * Gets all the current cities in the district ordering by population
      * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllTopCitiesInContinent(Integer num)
+    public ArrayList<City> getAllTopCitiesInContinent(String str,Integer num)
     {
         try
         {
@@ -621,7 +621,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT * FROM city ORDER BY Population DESC LIMIT " + num;
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Continent='"+str+"' ORDER BY Population DESC LIMIT " + num;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -650,7 +650,7 @@ private Connection con = null;
      * Gets all the current cities in the district ordering by population
      * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllTopCitiesInRegion(Integer num)
+    public ArrayList<City> getAllTopCitiesInRegion(String str, Integer num)
     {
         try
         {
@@ -659,7 +659,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT * FROM city ORDER BY Population DESC LIMIT " + num;
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Region='"+str+"' ORDER BY Population DESC LIMIT " + num;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -688,7 +688,7 @@ private Connection con = null;
      * Gets all the current cities in the district ordering by population
      * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllTopCitiesInCountry(Integer num)
+    public ArrayList<City> getAllTopCitiesInCountry(String str,Integer num)
     {
         try
         {
@@ -697,7 +697,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT * FROM city ORDER BY Population DESC LIMIT " + num;
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE country.Name='"+str+"' ORDER BY Population DESC LIMIT " + num;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -726,7 +726,7 @@ private Connection con = null;
      * Gets all the current cities in the district ordering by population
      * @return A list of all city names, country-code, district and their population, or null if there is an error.
      */
-    public ArrayList<City> getAllTopCitiesInDistrict(Integer num)
+    public ArrayList<City> getAllTopCitiesInDistrict(String str, Integer num)
     {
         try
         {
@@ -735,7 +735,7 @@ private Connection con = null;
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT * FROM city ORDER BY Population DESC LIMIT " + num;
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE city.District='"+str+"' ORDER BY Population DESC LIMIT " + num;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
@@ -1037,6 +1037,7 @@ private Connection con = null;
             // Connect to database
             a.connect();
 
+            String answer = "";
             do {
                 System.out.println("-+-+-+-+-+-+-+-+-+-+-+");
                 System.out.println("-+(WORLD POPULATION)+-");
@@ -1095,7 +1096,7 @@ private Connection con = null;
                             System.out.println("= ENTER a continent name - ");
                             String str = a.getSTRInput();
                             System.out.println("= ENTER a number to limit rankings");
-                            Integer selector2 = a.getINTInput();
+                            Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<Country> countries = a.getTopPopCountriesInContinent(str, num);
                             // Print format function for countries
@@ -1105,7 +1106,7 @@ private Connection con = null;
                             System.out.println("= ENTER a region name - ");
                             String str = a.getSTRInput();
                             System.out.println("= ENTER a number to limit rankings");
-                            Integer selector2 = a.getINTInput();
+                            Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<Country> countries = a.getTopPopCountriesInRegion(str, num);
                             // Print format function for countries
@@ -1182,53 +1183,53 @@ private Connection con = null;
                             System.out.println("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
-                            ArrayList<Country> countries = a.getAllTopCities(num);
+                            ArrayList<City> city = a.getAllTopCities(num);
                             // Print format function for countries
-                            a.printCountries(city);
+                            a.printCityInfo(city);
                         }
                         else if (selector2 == 7)
                         {
                             System.out.println("= ENTER a continent name - ");
                             String str = a.getSTRInput();
                             System.out.println("= ENTER a number to limit rankings");
-                            Integer selector2 = a.getINTInput();
+                            Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
-                            ArrayList<Country> countries = a.getAllTopCitiesInContinent(str, num);
+                            ArrayList<City> city = a.getAllTopCitiesInContinent(str, num);
                             // Print format function for countries
-                            a.printCountries(city);
+                            a.printCityInfo(city);
                         }
                         else if (selector2 == 8)
                         {
                             System.out.println("= ENTER a region name - ");
                             String str = a.getSTRInput();
                             System.out.println("= ENTER a number to limit rankings");
-                            Integer selector2 = a.getINTInput();
+                            Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
-                            ArrayList<Country> countries = a.getAllTopCitiesInRegion(str, num);
+                            ArrayList<City> city = a.getAllTopCitiesInRegion(str, num);
                             // Print format function for countries
-                            a.printCountries(city);
+                            a.printCityInfo(city);
                         }
                         else if (selector2 == 9)
                         {
                             System.out.println("= ENTER a country name - ");
                             String str = a.getSTRInput();
                             System.out.println("= ENTER a number to limit rankings");
-                            Integer selector2 = a.getINTInput();
+                            Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
-                            ArrayList<Country> countries = a.getAllTopCitiesInCountry(str, num);
+                            ArrayList<City> city = a.getAllTopCitiesInCountry(str, num);
                             // Print format function for countries
-                            a.printCountries(city);
+                            a.printCityInfo(city);
                         }
                         else
                         {
                             System.out.println("= ENTER a district name - ");
                             String str = a.getSTRInput();
                             System.out.println("= ENTER a number to limit rankings");
-                            Integer selector2 = a.getINTInput();
+                            Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
-                            ArrayList<Country> countries = a.getAllTopCitiesInDistrict(str, num);
+                            ArrayList<City> city = a.getAllTopCitiesInDistrict(str, num);
                             // Print format function for countries
-                            a.printCountries(city);
+                            a.printCityInfo(city);
                         }
 
 
@@ -1260,9 +1261,9 @@ private Connection con = null;
                             System.out.println("= ENTER a continent name -  ");
                             String str = a.getSTRInput();
                             // Extract capital cities in the continent by descending population
-                            ArrayList<CaptialCity> Capcity = a.getAllCapCitiesInContinent(str);
+                            ArrayList<CapitalCity> Capcity = a.getAllCapCitiesInContinent(str);
                             // Print format function for capital cities
-                            a.printCountries(Capcity);
+                            a.printCapitalCityInfo(Capcity);
                         }
                         else if(selector2 == 3)
                         {
@@ -1271,7 +1272,7 @@ private Connection con = null;
                             // Extract capital citeis in the region by descending population
                             ArrayList<CapitalCity> Capcity = a.getAllCapCitiesInRegion(str);
                             // Print format function for capital cities
-                            a.printCountries(Capcity);
+                            a.printCapitalCityInfo(Capcity);
                         }
                         else if(selector2 == 4)
                         {
@@ -1280,28 +1281,28 @@ private Connection con = null;
                             // Extract capital cities in the region by descending population
                             ArrayList<CapitalCity> Capcity = a.getTopPopCapitalCities(num);
                             // Print format function for capital cities
-                            a.printCountries(Capcity);
+                            a.printCapitalCityInfo(Capcity);
                         }
                         else if(selector2 == 5)
                         {
                             System.out.println("= ENTER a continent name - ");
                             String str = a.getSTRInput();
                             System.out.println("= ENTER a number to limit rankings");
-                            Integer selector2 = a.getINTInput();
+                            Integer num = a.getINTInput();
                             // Extract capital cities in the region by descending population
                             ArrayList<CapitalCity> Capcity = a.getTopPopCapCitiesInContinent(str, num);
                             // Print format function for capital cities
-                            a.printCountries(Capcity);
+                            a.printCapitalCityInfo(Capcity);
                         }
                         else{
                             System.out.println("= ENTER a region name - ");
                             String str = a.getSTRInput();
                             System.out.println("= ENTER a number to limit rankings");
-                            Integer selector2 = a.getINTInput();
+                            Integer num = a.getINTInput();
                             // Extract capital cities in the region by descending population
-                            ArrayList<CapitalCity> Capcity = a.getTopPopCountriesInRegion(str, num);
+                            ArrayList<CapitalCity> Capcity = a.getTopPopCapCitiesInRegion(str, num);
                             // Print format function for capital cities
-                            a.printCountries(Capcity);
+                            a.printCapitalCityInfo(Capcity);
                         }
                     }
                     catch (Exception e)
@@ -1310,15 +1311,15 @@ private Connection con = null;
                     }
                 }
 
-                System.out.printIn("- Do you want to continue (y or n)?");
-                char ans = a.getSTRInput();
-            } while (ans == y)
+                System.out.println("- Do you want to continue y or n?");
+                answer = a.getSTRInput();
+            } while(answer.equals("y"));
 
 
 
             // Disconnect from database
-            System.out.printIn("- Disconnecting database ---> ")
-            a.disconnect();
+            System.out.println("- Disconnecting database ---> ");
+            a.disconnect( );
 
         }
         catch(Exception e)
