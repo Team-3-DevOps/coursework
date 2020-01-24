@@ -842,7 +842,7 @@ private Connection con = null;
         // Extract cities in region by descending population
         // ArrayList<CapitalCity> capcity = a.getAllCapCitiesInRegion();
 
-        // Extract cities in region by descending population
+        // Extract capital cities in region by descending population
          ArrayList<CapitalCity> capcity = a.getTopPopCapCitiesInRegion();
 
         // Print format function for cities
