@@ -639,14 +639,14 @@ private Connection con = null;
     public void printCapitalCityInfo(ArrayList<CapitalCity> Capcity)
     {
         // Print header
-        System.out.println("Here is a report of cities by descending their populations");
+        System.out.println("Here is a report of capital cities by descending their populations");
         //System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
         // Loop over all employees in the list
         for (CapitalCity capcty : Capcity)
         {
 //            String cty_stringta =
 //                    String.format("%-20s %-50s %-20s %-50s %-50s",
-//                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
+//                            city.Name, country.Name, city.Population);
             System.out.println(capcty);
         }
     }
