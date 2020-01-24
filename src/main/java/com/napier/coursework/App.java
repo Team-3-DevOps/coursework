@@ -827,7 +827,7 @@ private Connection con = null;
         // Test the size of the returned data - should be
         // System.out.println(city.size());
 
-        // Extract cities in the world by descending population
+        // Extract capital cities in the world by descending population
         // ArrayList<CapitalCity> capcity = a.getAllCapitalCities();
 
         // Extract capital cities in the world by descending population
