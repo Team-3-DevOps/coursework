@@ -16,7 +16,7 @@ private Connection con = null;
     /**
      * Connect to the MySQL database.
      */
-    public void connect()
+    public void connect(String location)
     {
         try
         {
@@ -38,7 +38,7 @@ private Connection con = null;
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "Team-3-DevOps-CW");
+                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "Team-3-DevOps-CW");
                 System.out.println("* Successfully connected");
                 break;
             }
@@ -1059,7 +1059,7 @@ private Connection con = null;
             App a = new App();
 
             // Connect to database
-            a.connect();
+            a.connect("localhost:33060");
 
             String answer = "";
             do {
