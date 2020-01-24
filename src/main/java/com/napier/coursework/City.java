@@ -82,4 +82,3 @@ public class    City {
         Population = population;
     }
 }
-
