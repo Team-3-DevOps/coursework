@@ -836,7 +836,7 @@ private Connection con = null;
         // Extract cities in continent by descending population
          //ArrayList<CapitalCity> capcity = a.getAllCapCitiesInContinent();
 
-        // Extract cities in continent by descending population
+        // Extract capital cities in continent by descending population
         //ArrayList<CapitalCity> capcity = a.getTopPopCapCitiesInContinent();
 
         // Extract capital cities in region by descending population
