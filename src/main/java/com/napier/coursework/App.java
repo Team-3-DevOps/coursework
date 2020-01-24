@@ -986,17 +986,18 @@ private Connection con = null;
         }
         // Print header
         System.out.println("Here is a report of capital cities by descending their populations");
-        //System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
-        // Loop over all employees in the list
+        System.out.println(String.format("%-50s %-50s %-50s", "City Name", "Country Name", "Population"));
+        // Loop over all capital cities in the list
         for (CapitalCity capcty : Capcity)
         {
             if (capcty == null)
                 continue;
-//            String cty_stringta =
-//                    String.format("%-20s %-50s %-20s %-50s %-50s",
-//                            city.Name, country.Name, city.Population);
-            System.out.println(capcty);
+            String capty_string =
+                    String.format("%-50s %-50s %-50s",
+                            capcty.getName(), capcty.getCountry(), capcty.getPopulation());
+            System.out.println(capty_string);
         }
+        System.out.println("number of capital cities - " + Capcity.size());
     }
 
     /**
@@ -1013,16 +1014,17 @@ private Connection con = null;
         }
         // Print header
         System.out.println("Here is a report of countries by descending their populations");
-        //System.out.println(String.format("%-10s %-60s %-20s %-30s %-15s %-10s", "Code", "Country", "Continent", "Region", "Population", "Capitals"));
+        System.out.println(String.format("%-10s %-60s %-20s %-30s %-15s %-10s", "Code", "Country", "Continent", "Region", "Population", "Capitals"));
         // Loop over all countries in the list
         for (Country ctry : countries)
         {
             if (ctry == null)
                 continue;
-            //String ctry_string =
-            //  String.format("%-10s %-60s %-20s %-30s %-15s %-10s" , ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population, ctry.capital);
-            System.out.println(ctry);
+            String ctry_string =
+            String.format("%-10s %-60s %-20s %-30s %-15s %-10s" , ctry.getCode(), ctry.getName(), ctry.getContinent(), ctry.getRegion(), ctry.getPopulation(), ctry.getCapital());
+            System.out.println(ctry_string);
         }
+        System.out.println("number of countries - " + countries.size());
     }
     /**
      * Prints a list of cities.
@@ -1038,17 +1040,18 @@ private Connection con = null;
         }
         // Print header
         System.out.println("Here is a report of cities by descending their populations");
-        //System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
-        // Loop over all employees in the list
+        System.out.println(String.format("%-20s %-50s %-20s %-50s %-50s", "City ID", "Name", "Country Code", "District", "Population"));
+        // Loop over all cities in the list
         for (City cty : city)
         {
             if (cty == null)
                 continue;
-//            String cty_string =
-//                    String.format("%-20s %-50s %-20s %-50s %-50s",
-//                            cty.ID, cty.Name, cty.CountryCode, cty.District, cty.Population);
-            System.out.println(cty);
+            String cty_string =
+                    String.format("%-20s %-50s %-20s %-50s %-50s",
+                            cty.getID(), cty.getName(), cty.getCountryCode(), cty.getDistrict(), cty.getPopulation());
+            System.out.println(cty_string);
         }
+        System.out.println("number of cities - " + city.size());
     }
 
 
@@ -1079,7 +1082,7 @@ private Connection con = null;
                         System.out.println("3. Rank all countries in a region");
                         System.out.println("4. Rank top <N> countries in the world");
                         System.out.println("5. Rank top <N> countries in a continent");
-                        System.out.println("6. Rank top <N> countires in a region");
+                        System.out.println("6. Rank top <N> countries in a region");
                         System.out.print("Choose an option: ");
                         Integer selector2 = a.getINTInput();
 
