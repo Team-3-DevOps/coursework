@@ -91,7 +91,6 @@ private Connection con = null;
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String s = br.readLine();
-            System.out.println(s);
             return s;
         }
         catch (Exception e) {
@@ -1039,8 +1038,8 @@ private Connection con = null;
 
             String answer = "";
             do {
-                System.out.println("-+-+-+-+-+-+-+-+-+-+-+");
-                System.out.println("-+(WORLD POPULATION)+-");
+                System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-++-+-+-+-+-+-++-+-+-");
+                System.out.println("-+-+-+-+-+-+-+-+-+-+(WORLD POPULATION)+-+-+-+-+-+-+-+-+-+-");
                 System.out.println("= Reports are ordered by largest population to smallest =");
                 System.out.println("1. COUNTRY REPORTS +-");
                 System.out.println("2. CITY REPORTS +-");
