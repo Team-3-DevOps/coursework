@@ -32,14 +32,14 @@ private Connection con = null;
         int retries = 10;
         for (int i = 0; i < retries; ++i)
         {
-            System.out.println("Connecting to database...");
+            System.out.println("* Connecting to database...");
             try
             {
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
                 con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "Team-3-DevOps-CW");
-                System.out.println("Successfully connected");
+                System.out.println("* Successfully connected");
                 break;
             }
             catch (SQLException sqle)
@@ -65,6 +65,7 @@ private Connection con = null;
             {
                 // Close connection
                 con.close();
+                System.out.println("* Sucessfully disconnected");
             }
             catch (Exception e)
             {
@@ -1044,6 +1045,7 @@ private Connection con = null;
                 System.out.println("1. COUNTRY REPORTS +-");
                 System.out.println("2. CITY REPORTS +-");
                 System.out.println("3. CAPITAL CITY REPORTS +-");
+                System.out.print("Choose an option: ");
                 Integer selector1 = a.getINTInput();
                 if(selector1 == 1)
                 {
@@ -1054,7 +1056,9 @@ private Connection con = null;
                         System.out.println("4. Rank top <N> countries in the world");
                         System.out.println("5. Rank top <N> countries in a continent");
                         System.out.println("6. Rank top <N> countires in a region");
+                        System.out.print("Choose an option: ");
                         Integer selector2 = a.getINTInput();
+
 
                         if(selector2 == 1)
                         {
@@ -1065,7 +1069,7 @@ private Connection con = null;
                         }
                         else if(selector2 == 2)
                         {
-                            System.out.println("= ENTER a continent name -  ");
+                            System.out.print("= ENTER a continent name - ");
                             String str = a.getSTRInput();
                             // Extract countries in the continent by descending population
                             ArrayList<Country> countries = a.getAllCountriesInContinent(str);
@@ -1074,7 +1078,7 @@ private Connection con = null;
                         }
                         else if(selector2 == 3)
                         {
-                            System.out.println("= ENTER a region name - ");
+                            System.out.print("= ENTER a region name - ");
                             String str = a.getSTRInput();
                             // Extract countries in the region by descending population
                             ArrayList<Country> countries = a.getAllCountriesInRegion(str);
@@ -1083,7 +1087,7 @@ private Connection con = null;
                         }
                         else if(selector2 == 4)
                         {
-                            System.out.println("= ENTER a number to limit rankings - ");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<Country> countries = a.getTopPopCountriesInWorld(num);
@@ -1092,9 +1096,9 @@ private Connection con = null;
                         }
                         else if(selector2 == 5)
                         {
-                            System.out.println("= ENTER a continent name - ");
+                            System.out.print("= ENTER a continent name - ");
                             String str = a.getSTRInput();
-                            System.out.println("= ENTER a number to limit rankings");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<Country> countries = a.getTopPopCountriesInContinent(str, num);
@@ -1102,9 +1106,9 @@ private Connection con = null;
                             a.printCountries(countries);
                         }
                         else{
-                            System.out.println("= ENTER a region name - ");
+                            System.out.print("= ENTER a region name - ");
                             String str = a.getSTRInput();
-                            System.out.println("= ENTER a number to limit rankings");
+                            System.out.print("= ENTER a number to limit rankings");
                             Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<Country> countries = a.getTopPopCountriesInRegion(str, num);
@@ -1131,6 +1135,7 @@ private Connection con = null;
                         System.out.println("8. Rank top <N> countires in a region");
                         System.out.println("9. Rank top <N> countires in a country");
                         System.out.println("10. Rank top <N> countires in a district");
+                        System.out.print("Choose an option: ");
                         Integer selector2 = a.getINTInput();
                         if (selector2 == 1)
                         {
@@ -1141,7 +1146,7 @@ private Connection con = null;
                         }
                         else if (selector2 == 2)
                         {
-                            System.out.println("= ENTER a continent name -  ");
+                            System.out.print("= ENTER a continent name - ");
                             String str = a.getSTRInput();
                             // Extract cities in continent by descending population
                             ArrayList<City> city = a.getAllCitiesInContinent(str);
@@ -1151,7 +1156,7 @@ private Connection con = null;
                         }
                         else if (selector2 == 3)
                         {
-                            System.out.println("= ENTER a region name -  ");
+                            System.out.print("= ENTER a region name - ");
                             String str = a.getSTRInput();
                             // Extract cities in continent by descending population
                             ArrayList<City> city = a.getAllCitiesInRegion(str);
@@ -1161,7 +1166,7 @@ private Connection con = null;
                         }
                         else if (selector2 == 4)
                         {
-                            System.out.println("= ENTER a country name -  ");
+                            System.out.print("= ENTER a country name - ");
                             String str = a.getSTRInput();
                             // Extract cities in continent by descending population
                             ArrayList<City> city = a.getAllCitiesInCountry(str);
@@ -1170,7 +1175,7 @@ private Connection con = null;
                         }
                         else if (selector2 == 5)
                         {
-                            System.out.println("= ENTER a district name -  ");
+                            System.out.print("= ENTER a district name - ");
                             String str = a.getSTRInput();
                             // Extract cities in continent by descending population
                             ArrayList<City> city = a.getAllCitiesInDistrict(str);
@@ -1179,7 +1184,7 @@ private Connection con = null;
                         }
                         else if (selector2 == 6)
                         {
-                            System.out.println("= ENTER a number to limit rankings - ");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<City> city = a.getAllTopCities(num);
@@ -1188,9 +1193,9 @@ private Connection con = null;
                         }
                         else if (selector2 == 7)
                         {
-                            System.out.println("= ENTER a continent name - ");
+                            System.out.print("= ENTER a continent name - ");
                             String str = a.getSTRInput();
-                            System.out.println("= ENTER a number to limit rankings");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<City> city = a.getAllTopCitiesInContinent(str, num);
@@ -1199,9 +1204,9 @@ private Connection con = null;
                         }
                         else if (selector2 == 8)
                         {
-                            System.out.println("= ENTER a region name - ");
+                            System.out.print("= ENTER a region name - ");
                             String str = a.getSTRInput();
-                            System.out.println("= ENTER a number to limit rankings");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<City> city = a.getAllTopCitiesInRegion(str, num);
@@ -1210,9 +1215,9 @@ private Connection con = null;
                         }
                         else if (selector2 == 9)
                         {
-                            System.out.println("= ENTER a country name - ");
+                            System.out.print("= ENTER a country name - ");
                             String str = a.getSTRInput();
-                            System.out.println("= ENTER a number to limit rankings");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<City> city = a.getAllTopCitiesInCountry(str, num);
@@ -1221,9 +1226,9 @@ private Connection con = null;
                         }
                         else
                         {
-                            System.out.println("= ENTER a district name - ");
+                            System.out.print("= ENTER a district name - ");
                             String str = a.getSTRInput();
-                            System.out.println("= ENTER a number to limit rankings");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract countries in the region by descending population
                             ArrayList<City> city = a.getAllTopCitiesInDistrict(str, num);
@@ -1247,6 +1252,7 @@ private Connection con = null;
                         System.out.println("4. Rank top <N> capital cities in the world");
                         System.out.println("5. Rank top <N> capital cities in a continent");
                         System.out.println("6. Rank top <N> capital cities in a region");
+                        System.out.print("Choose an option: ");
                         Integer selector2 = a.getINTInput();
                         if(selector2 == 1)
                         {
@@ -1257,7 +1263,7 @@ private Connection con = null;
                         }
                         else if(selector2 == 2)
                         {
-                            System.out.println("= ENTER a continent name -  ");
+                            System.out.print("= ENTER a continent name -  ");
                             String str = a.getSTRInput();
                             // Extract capital cities in the continent by descending population
                             ArrayList<CapitalCity> Capcity = a.getAllCapCitiesInContinent(str);
@@ -1266,7 +1272,7 @@ private Connection con = null;
                         }
                         else if(selector2 == 3)
                         {
-                            System.out.println("= ENTER a region name - ");
+                            System.out.print("= ENTER a region name - ");
                             String str = a.getSTRInput();
                             // Extract capital citeis in the region by descending population
                             ArrayList<CapitalCity> Capcity = a.getAllCapCitiesInRegion(str);
@@ -1275,7 +1281,7 @@ private Connection con = null;
                         }
                         else if(selector2 == 4)
                         {
-                            System.out.println("= ENTER a number to limit rankings - ");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract capital cities in the region by descending population
                             ArrayList<CapitalCity> Capcity = a.getTopPopCapitalCities(num);
@@ -1284,9 +1290,9 @@ private Connection con = null;
                         }
                         else if(selector2 == 5)
                         {
-                            System.out.println("= ENTER a continent name - ");
+                            System.out.print("= ENTER a continent name - ");
                             String str = a.getSTRInput();
-                            System.out.println("= ENTER a number to limit rankings");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract capital cities in the region by descending population
                             ArrayList<CapitalCity> Capcity = a.getTopPopCapCitiesInContinent(str, num);
@@ -1294,9 +1300,9 @@ private Connection con = null;
                             a.printCapitalCityInfo(Capcity);
                         }
                         else{
-                            System.out.println("= ENTER a region name - ");
+                            System.out.print("= ENTER a region name - ");
                             String str = a.getSTRInput();
-                            System.out.println("= ENTER a number to limit rankings");
+                            System.out.print("= ENTER a number to limit rankings - ");
                             Integer num = a.getINTInput();
                             // Extract capital cities in the region by descending population
                             ArrayList<CapitalCity> Capcity = a.getTopPopCapCitiesInRegion(str, num);
@@ -1310,7 +1316,7 @@ private Connection con = null;
                     }
                 }
 
-                System.out.println("- Do you want to continue y or n?");
+                System.out.print("- Do you want to continue <y or n>? ");
                 answer = a.getSTRInput();
             } while(answer.equals("y"));
 
