@@ -1,6 +1,7 @@
 ## Team 3: Coursework
 - Team-3-DevOps Organization is created and contributed by four team members. Coursework project repo is also created for group participations. You can also see project kanban broad on project menu of our organization. 
 
+## STATUS
 ### Code Review 1
 - Checklists of code review 1 are finished as you can see in project of Team-3-DevOps 
 - Code of conduct, product backlog, contribution spreedsheet are submitted on github conducting with Markdown Language.  
@@ -10,6 +11,12 @@
 - Checklists of code review 2 are finished as you can see in project of Team-3-DevOps but this time, Zube Agile Project Management tool is integrated. User stories issues and sprints broad are applied for relative tasks.  
 - Use case diagram and full use cases are properly defined.
 - Projet Requirement meets to 8 tasks among 33 tasks.
+
+### Code Review 3
+- Project Requirement meets to 22 tasks among 33 tasks. 
+- Task Units are defined at all display functions. 
+- Used CODECOV for suitable integration tests [Check it out here!](https://codecov.io/gh/Team-3-DevOps/coursework/branch/develop)
+- Test Units are also built at Travis CI which are surely passed.
 
 ## Software Engineering Methods
 - Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
