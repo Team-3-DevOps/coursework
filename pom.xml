@@ -17,13 +17,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.44</version>
+            <version>8.0.13</version>
         </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.1.0</version>
+            <version>[5.1.0,)</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -32,9 +32,10 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.2</version>
+                <version>0.8.5</version>
                 <executions>
                     <execution>
+                        <id>jacoco-initialize</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -48,6 +49,9 @@
                     </execution>
                 </executions>
             </plugin>
+
+
+
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
@@ -62,6 +66,7 @@
                     </descriptorRefs>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
+
                 <executions>
                     <execution>
                         <id>make-assembly</id>

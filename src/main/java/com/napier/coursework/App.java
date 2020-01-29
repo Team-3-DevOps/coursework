@@ -18,18 +18,18 @@ private Connection con = null;
      */
     public void connect(String location)
     {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
+//        try
+//        {
+//            // Load Database driver
+//            Class.forName("com.mysql.jdbc.Driver");
+//        }
+//        catch (ClassNotFoundException e)
+//        {
+//            System.out.println("Could not load SQL driver");
+//            System.exit(-1);
+//        }
 
-        int retries = 10;
+        int retries = 2;
         for (int i = 0; i < retries; ++i)
         {
             System.out.println("* Connecting to database...");
@@ -411,7 +411,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -450,7 +450,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -489,7 +489,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -528,7 +528,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -565,7 +565,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city' details");
             return null;
         }
     }
@@ -603,7 +603,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -641,7 +641,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -679,7 +679,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -717,7 +717,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -755,7 +755,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -791,7 +791,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get capital details");
             return null;
         }
     }
@@ -826,7 +826,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get capital details");
             return null;
         }
     }
@@ -861,7 +861,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -896,7 +896,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -933,7 +933,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -968,7 +968,7 @@ private Connection con = null;
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get city details");
             return null;
         }
     }
@@ -1064,7 +1064,7 @@ private Connection con = null;
             // Connect to database
             if (args.length < 1)
             {
-                a.connect("localhost:3306");
+                a.connect("localhost:33060");
             }
             else
             {
