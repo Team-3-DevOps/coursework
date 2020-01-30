@@ -38,7 +38,8 @@ private Connection con = null;
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
-                String url = "jdbc:mysql://"+location+"/mysql";
+                String url = "jdbc:mysql://"+location+"/world?allowPublicKeyRetrieval=true&useSSL=false";
+
                 con = DriverManager.getConnection(url, "root", "t3devops");
                 System.out.println("* Successfully connected");
                 break;
