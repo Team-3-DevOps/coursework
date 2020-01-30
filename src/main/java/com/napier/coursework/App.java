@@ -1054,6 +1054,190 @@ private Connection con = null;
         System.out.println("number of cities - " + city.size());
     }
 
+    /**
+     * @return The population of people, people living in cities, and people not living in cities in each continent.
+     */
+    public ArrayList<Population> getPopulationInContinent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            Statement stmt1 = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT SUM(country.Population) , country.Continent from country GROUP By country. Continent" ;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                Population Popu = new Population();
+                Popu.setTotal(rset.getLong(1));
+                Popu.setName(rset.getString(2));
+                String strSelect1 = "SELECT SUM(city.population)  from city Inner JOIN country ON city.CountryCode= country.Code AND country.Continent = '"+rset.getString(2)+"'";
+                // Execute SQL statement
+                ResultSet rset1 = stmt1.executeQuery(strSelect1);
+                // Extract city information
+                while(rset1.next()) {
+                    Popu.setLiving_in_city(rset1.getLong(1));
+                    //Number of people lving in cities
+                    Popu.setNot_living_in_city(rset.getLong(1)-rset1.getLong(1));
+                    //Number of people not living in cities
+                    if (rset.getLong(1)!=0) {
+                        Popu.setLiving_in_city_percent( (rset1.getLong(1)*100f / rset.getLong(1)));
+                        //Percentage of people lving in cities
+                        Popu.setNot_living_in_city_percent((float)(rset.getLong(1)-rset1.getLong(1))*100/rset.getLong(1));
+                        //Percentage of people not living in cities
+                    }
+
+                }
+//
+                population.add(Popu);
+            }
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * @return The population of people, people living in cities, and people not living in cities in each region.
+     */
+    public ArrayList<Population> getPopulationInRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            Statement stmt1 = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT SUM(country.Population) , country.Region from country GROUP By country. Region" ;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                Population Popu = new Population();
+                Popu.setTotal(rset.getLong(1));
+                Popu.setName(rset.getString(2));
+                String strSelect1 = "SELECT SUM(city.population)  from city Inner JOIN country ON city.CountryCode= country.Code AND country.Region = '"+rset.getString(2)+"'";
+                // Execute SQL statement
+                ResultSet rset1 = stmt1.executeQuery(strSelect1);
+                // Extract city information
+                while(rset1.next()) {
+                    Popu.setLiving_in_city(rset1.getLong(1));
+                    //Number of people lving in cities
+                    Popu.setNot_living_in_city(rset.getLong(1)-rset1.getLong(1));
+                    //Number of people not living in cities
+                    if (rset.getLong(1)!=0) {
+                        Popu.setLiving_in_city_percent( (rset1.getLong(1)*100f / rset.getLong(1)));
+                        //Percentage of people lving in cities
+                        Popu.setNot_living_in_city_percent((float)(rset.getLong(1)-rset1.getLong(1))*100/rset.getLong(1));
+                        //Percentage of people not living in cities
+                    }
+
+                }
+//
+                population.add(Popu);
+            }
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * @return The population of people, people living in cities, and people not living in cities in each region.
+     */
+    public ArrayList<Population> getPopulationInCountry()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            Statement stmt1 = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT SUM(country.Population) , country.Name from country GROUP By country.Name" ;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                Population Popu = new Population();
+                Popu.setTotal(rset.getLong(1));
+                Popu.setName(rset.getString(2));
+                String strSelect1 = "SELECT SUM(city.population)  from city Inner JOIN country ON city.CountryCode= country.Code AND country.Name = '"+rset.getString(2)+"'";
+                // Execute SQL statement
+                ResultSet rset1 = stmt1.executeQuery(strSelect1);
+                // Extract city information
+                while(rset1.next()) {
+                    Popu.setLiving_in_city(rset1.getLong(1));
+                    //Number of people lving in cities
+                    Popu.setNot_living_in_city(rset.getLong(1)-rset1.getLong(1));
+                    //Number of people not living in cities
+                    if (rset.getLong(1)!=0) {
+                        Popu.setLiving_in_city_percent( (rset1.getLong(1)*100f / rset.getLong(1)));
+                        //Percentage of people lving in cities
+                        Popu.setNot_living_in_city_percent((float)(rset.getLong(1)-rset1.getLong(1))*100/rset.getLong(1));
+                        //Percentage of people not living in cities
+                    }
+
+                }
+//
+                population.add(Popu);
+            }
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * Prints a list of continents with population who live in cities and not.
+     * @param population The list of population details to print.
+     */
+    public void printPopulationInfo(ArrayList<Population> population)
+    {
+        // Check cities is not null
+        if (population == null)
+        {
+            System.out.println("No populations");
+            return;
+        }
+        // Print header
+        System.out.println("Here is a report of Population");
+        System.out.println(String.format("%-40s %-20s %-20s %-35s %-30s %-32s", "Name", "Total Population", "Population in Cities", "Percentage of Population in Cities","Population not in Cities", "Percentage of Population not in Cities"));
+        // Loop over all the answer in the list
+        for (Population popul : population)
+        {
+            if (popul == null)
+                continue;
+            String popul_string =
+                    String.format("%-40s %-20s %-20s %-35s %-30s %-32s",
+                            popul.getName(), popul.getTotal(), popul.getLiving_in_city(), popul.getLiving_in_city_percent()+"%",popul.getNot_living_in_city(),popul.getNot_living_in_city_percent()+"%");
+            System.out.println(popul_string);
+        }
+        System.out.println("number of populations - " + population.size());
+    }
+
+
+
+
 
     public static void main(String[] args)
     {
@@ -1079,6 +1263,7 @@ private Connection con = null;
                 System.out.println("1. COUNTRY REPORTS +-");
                 System.out.println("2. CITY REPORTS +-");
                 System.out.println("3. CAPITAL CITY REPORTS +-");
+                System.out.println("4. Population REPORTS of people living in cities and not living in the cities +-");
                 System.out.print("Choose an option: ");
                 Integer selector1 = a.getINTInput();
                 if(selector1 == 1)
@@ -1277,7 +1462,7 @@ private Connection con = null;
                         System.out.println("Error");
                     }
                 }
-                else
+                else if (selector1 == 3)
                 {
                     try{
                         System.out.println("1. Rank all capital cities in the world");
@@ -1349,7 +1534,41 @@ private Connection con = null;
                         System.out.println("Error");
                     }
                 }
-
+                else if (selector1 == 4)
+                {
+                    try{
+                        System.out.println("1. The population of people, people living in cities, and people not living in cities in each continent.");
+                        System.out.println("2. The population of people, people living in cities, and people not living in cities in each region.");
+                        System.out.println("3. The population of people, people living in cities, and people not living in cities in each country");
+                        System.out.print("Choose an option: ");
+                        Integer selector2 = a.getINTInput();
+                        if(selector2 == 1)
+                        {
+                            // Extract population of living in cities and not
+                            ArrayList<Population> population = a.getPopulationInContinent();
+                            // Print format function for population living and not living in cities
+                            a.printPopulationInfo(population);
+                        }
+                        else if(selector2 == 2)
+                        {
+                            // Extract population of living in cities and not
+                            ArrayList<Population> population = a.getPopulationInRegion();
+                            // Print format function for population living and not living in cities
+                            a.printPopulationInfo(population);
+                        }
+                        else if(selector2 == 3)
+                        {
+                            // Extract population of living in cities and not
+                            ArrayList<Population> population = a.getPopulationInCountry();
+                            // Print format function for population living and not living in cities
+                            a.printPopulationInfo(population);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        System.out.println("Error");
+                    }
+                }
                 System.out.print("- Do you want to continue <y or n>? ");
                 answer = a.getSTRInput();
             } while(answer.equals("y"));
