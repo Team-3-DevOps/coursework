@@ -4,7 +4,7 @@ package com.napier.coursework;
 Represent an city
  */
 
-public class City {
+public class    City {
     /**
      * City ID
      */
@@ -82,4 +82,3 @@ public class City {
         Population = population;
     }
 }
-
