@@ -15,7 +15,8 @@ rectangle "Top N populated cities report function" {
     usecase cc as "Choose category"
     usecase N as "Enter a number N "
     usecase UC as "Get The top N populated  cities
-    in the world where N is provided by the user."
+    in the world where N is provided by
+     the user."
 
     user -- UC
     user -- cc
