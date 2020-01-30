@@ -18,16 +18,16 @@ private Connection con = null;
      */
     public void connect(String location)
     {
-//        try
-//        {
-//            // Load Database driver
-//            Class.forName("com.mysql.jdbc.Driver");
-//        }
-//        catch (ClassNotFoundException e)
-//        {
-//            System.out.println("Could not load SQL driver");
-//            System.exit(-1);
-//        }
+        try
+        {
+            // Load Database driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Could not load SQL driver");
+            System.exit(-1);
+        }
 
         int retries = 2;
         for (int i = 0; i < retries; ++i)
@@ -38,7 +38,8 @@ private Connection con = null;
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "Team-3-DevOps-CW");
+                String url = "jdbc:mysql://"+location+"/mysql";
+                con = DriverManager.getConnection(url, "root", "t3devops");
                 System.out.println("* Successfully connected");
                 break;
             }
