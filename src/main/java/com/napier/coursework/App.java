@@ -110,6 +110,48 @@ private Connection con = null;
     }
 
     /**
+     * Gets a city in the world.
+     * @return
+     */
+
+    public ArrayList<City> getCity (Integer num){
+        try {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.ID, city.Name, city.CountryCode, city.District, city.Population, country.Continent   FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE city.ID="+num+" ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract city information
+            ArrayList<City> city = new ArrayList<City>();
+
+            while (rset.next())
+            {
+                City cty = new City();
+                cty.setID(rset.getInt("city.ID"));
+                cty.setName(rset.getString("city.Name"));
+                cty.setCountryCode(rset.getString("city.CountryCode"));
+                cty.setDistrict(rset.getString("city.District"));
+                cty.setPopulation(rset.getInt("city.Population"));
+                city.add(cty);
+            }
+            return city;
+
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+
+
+
+    }
+
+    /**
      * Gets all the countries in the world by largest population to smallest.
      * @return A list of all countries and population, or null if there is an error.
      */
