@@ -38,6 +38,18 @@ public class AppTest {
     }
 
     @Test
+    void printPopulationInfoNull()
+    {
+        app.printPopulationInfo(null);
+    }
+
+    @Test
+    void printPopulationTotalNull()
+    {
+        app.printPopulationTotal(null);
+    }
+
+    @Test
     void printCountriesEmpty()
     {
         ArrayList<Country> countries = new ArrayList<Country>();
@@ -56,6 +68,20 @@ public class AppTest {
     {
         ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
         app.printCapitalCityInfo(Capcity);
+    }
+
+    @Test
+    void printPopulationInfoEmpty()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        app.printPopulationInfo(populations);
+    }
+
+    @Test
+    void printPopulationTotalEmpty()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        app.printPopulationTotal(populations);
     }
 
     @Test
@@ -79,6 +105,22 @@ public class AppTest {
         ArrayList<CapitalCity> Capcity = new ArrayList<CapitalCity>();
         Capcity.add(null);
         app.printCapitalCityInfo(Capcity);
+    }
+
+    @Test
+    void printPopulationInfoContainsNull()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        populations.add(null);
+        app.printPopulationInfo(populations);
+    }
+
+    @Test
+    void printPopulationTotalContainsNull()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        populations.add(null);
+        app.printPopulationTotal(populations);
     }
 
     @Test
@@ -119,5 +161,31 @@ public class AppTest {
         capcty.setPopulation(1780000);
         Capcity.add(capcty);
         app.printCapitalCityInfo(Capcity);
+    }
+
+    @Test
+    void printPopulationInfo()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        Population popul = new Population();
+        popul.setName("North America");
+        popul.setTotal(482993000);
+        popul.setLiving_in_city(168250381);
+        popul.setLiving_in_city_percent(34);
+        popul.setNot_living_in_city(314742619);
+        popul.setNot_living_in_city_percent(65);
+        populations.add(popul);
+        app.printPopulationInfo(populations);
+    }
+
+    @Test
+    void printPopulationTotal()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        Population popul = new Population();
+        popul.setName("Oceania");
+        popul.setTotal(30401150);
+        populations.add(popul);
+        app.printPopulationTotal(populations);
     }
 }
