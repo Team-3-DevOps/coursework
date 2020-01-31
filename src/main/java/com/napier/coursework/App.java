@@ -1213,7 +1213,7 @@ private Connection con = null;
      */
     public void printPopulationInfo(ArrayList<Population> population)
     {
-        // Check cities is not null
+        // Check population is not null
         if (population == null)
         {
             System.out.println("No populations");
@@ -1234,9 +1234,215 @@ private Connection con = null;
         }
         System.out.println("number of populations - " + population.size());
     }
+    public ArrayList<Population> TotalPopuationInWorld()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(country.Population) FROM country";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract Population information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                Population Popu = new Population();
+                Popu.setTotal(rset.getLong(1));
+                Popu.setName("World");
+                population.add(Popu);
+            }
 
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+    public ArrayList<Population> TotalPopuationInaContinent(String str)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(country.Population), country.Continent FROM country WHERE country.Continent='"+str+"'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract Population information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                Population Popu = new Population();
+                Popu.setTotal(rset.getLong(1));
+                Popu.setName(rset.getString(2));
+                population.add(Popu);
+            }
 
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+    public ArrayList<Population> TotalPopuationInaRegion(String str)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(country.Population), country.Region FROM country WHERE country.Region='"+str+"'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract Population information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                Population Popu = new Population();
+                Popu.setTotal(rset.getLong(1));
+                Popu.setName(rset.getString(2));
+                population.add(Popu);
+            }
 
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    public ArrayList<Population> TotalPopuationInaCountry(String str)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT country.Population, country.Name FROM country WHERE country.Name='"+str+"'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract Population information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                Population Popu = new Population();
+                Popu.setTotal(rset.getLong(1));
+                Popu.setName(rset.getString(2));
+                population.add(Popu);
+            }
+
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    public ArrayList<Population> TotalPopuationInaDistrict(String str)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT SUM(city.Population) FROM city WHERE city.District='"+str+"'";
+            System.out.println(str);
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract Population information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                System.out.println(rset.getLong(1));
+                Population Popu = new Population();
+                Popu.setTotal(rset.getLong(1));
+                Popu.setName(str);
+                population.add(Popu);
+            }
+
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    public ArrayList<Population> TotalPopuationInaCity(String str)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT city.Population, city.Name FROM city WHERE city.name='"+str+"'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract Population information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                Population Popu = new Population();
+                Popu.setTotal(rset.getLong(1));
+                Popu.setName(rset.getString(2));
+                population.add(Popu);
+            }
+
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    public void printPopulationTotal(ArrayList<Population> population)
+    {
+        // Check population is not null
+        if (population == null)
+        {
+            System.out.println("No populations");
+            return;
+        }
+        // Print header
+        System.out.println("Here is a Total population report");
+        System.out.println(String.format("%-40s %-20s", "Name", "Total Population"));
+        // Loop over all the answer in the list
+        for (Population popul : population)
+        {
+            if (popul == null)
+                continue;
+            String popul_string =
+                    String.format("%-40s %-20s",
+                            popul.getName(), popul.getTotal());
+            System.out.println(popul_string);
+        }
+        System.out.println("number of populations - " + population.size());
+    }
 
 
     public static void main(String[] args)
@@ -1264,6 +1470,8 @@ private Connection con = null;
                 System.out.println("2. CITY REPORTS +-");
                 System.out.println("3. CAPITAL CITY REPORTS +-");
                 System.out.println("4. Population REPORTS of people living in cities and not living in the cities +-");
+                System.out.println("5. Access the population infromation");
+                System.out.println("6. Population of people that used different lanaugages");
                 System.out.print("Choose an option: ");
                 Integer selector1 = a.getINTInput();
                 if(selector1 == 1)
@@ -1562,6 +1770,75 @@ private Connection con = null;
                             ArrayList<Population> population = a.getPopulationInCountry();
                             // Print format function for population living and not living in cities
                             a.printPopulationInfo(population);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        System.out.println("Error");
+                    }
+                }
+                else if (selector1 == 5)
+                {
+                    try{
+                        System.out.println("1. The population of the world");
+                        System.out.println("2. The population of a continent");
+                        System.out.println("3. The population of a region");
+                        System.out.println("4. The population of a country");
+                        System.out.println("5. The population of a district");
+                        System.out.println("6. The population of a city");
+                        System.out.print("Choose an option: ");
+                        Integer selector2 = a.getINTInput();
+                        if(selector2 == 1)
+                        {
+                            // Extract Total population of the world
+                            ArrayList<Population> population = a.TotalPopuationInWorld();
+                            // Print format function for population living and not living in cities
+                            a.printPopulationTotal(population);
+                        }
+                        if(selector2 == 2)
+                        {
+                            System.out.print("= ENTER a continent name -  ");
+                            String str = a.getSTRInput();
+                            // Extract Total population of a continent
+                            ArrayList<Population> population = a.TotalPopuationInaContinent(str);
+                            // Print format function for population living and not living in cities
+                            a.printPopulationTotal(population);
+                        }
+                        if(selector2 == 3)
+                        {
+                            System.out.print("= ENTER a region name -  ");
+                            String str = a.getSTRInput();
+                            // Extract Total population of a region
+                            ArrayList<Population> population = a.TotalPopuationInaRegion(str);
+                            // Print format function for population living and not living in regions
+                            a.printPopulationTotal(population);
+                        }
+                        if(selector2 == 4)
+                        {
+                            System.out.print("= ENTER a country name -  ");
+                            String str = a.getSTRInput();
+                            // Extract Total population of a continent
+                            ArrayList<Population> population = a.TotalPopuationInaCountry(str);
+                            // Print format function for population living and not living in cities
+                            a.printPopulationTotal(population);
+                        }
+                        if(selector2 == 5)
+                        {
+                            System.out.print("= ENTER a district name -  ");
+                            String str = a.getSTRInput();
+                            // Extract Total population of a continent
+                            ArrayList<Population> population = a.TotalPopuationInaDistrict(str);
+                            // Print format function for population living and not living in cities
+                            a.printPopulationTotal(population);
+                        }
+                        if(selector2 == 6)
+                        {
+                            System.out.print("= ENTER a city name -  ");
+                            String str = a.getSTRInput();
+                            // Extract Total population of a city
+                            ArrayList<Population> population = a.TotalPopuationInaCity(str);
+                            // Print format function for population living and not living in cities
+                            a.printPopulationTotal(population);
                         }
                     }
                     catch (Exception e)
