@@ -8,7 +8,7 @@ Assignees: wai4043, WaiLinn-Oo (@github)
 ---
 
 **Describe the bug**
-So it can say that lack of valitation in Menu option flows. Program works smoothly and produce correct results untill user enters invalid values in choose options. 
+So it can say that lack of validation in Menu option flows. Program works smoothly and produce correct results untill user enters invalid values in choose options. 
 
 **To Reproduce**
 Steps to reproduce the behavior:
@@ -22,8 +22,7 @@ Steps to reproduce the behavior:
 **Expected behavior**
 Vailidate input values and go back to main menu if there is something gone wrong or overlimting values. 
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+
 
 **Desktop (please complete the following information):**
  - OS: [Window 10 64 bit]
