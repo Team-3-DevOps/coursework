@@ -1,12 +1,14 @@
 package com.napier.coursework;
 
-// main application for world population reports
+
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
+/**
+ * App class for world population reports.
+ */
 public class App
 {      /**
  * Connection to MySQL database.
@@ -26,7 +28,7 @@ private Connection con = null;
         catch (ClassNotFoundException e)
         {
             System.out.println("Could not load SQL driver");
-            System.exit(-1);
+            return;
         }
 
         int retries = 2;
@@ -75,7 +77,9 @@ private Connection con = null;
             }
         }
     }
-
+    /**
+     * Get integer input from the User (Options, Number of Rank).
+     */
     public Integer getINTInput() {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -89,7 +93,9 @@ private Connection con = null;
             return null;
         }
     }
-
+    /**
+     * Get string input from the User (continent, region, country, district).
+     */
     public String getSTRInput() {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -1056,7 +1062,9 @@ private Connection con = null;
         System.out.println("number of cities - " + city.size());
     }
 
-
+    /**
+     * Application's main entry point.
+     */
     public static void main(String[] args)
     {
         try {

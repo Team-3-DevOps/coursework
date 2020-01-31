@@ -1,12 +1,16 @@
 package com.napier.coursework;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * AppTest Class for Unit Testing
+ */
 public class AppTest {
+    /**
+     * Define static App
+     */
     static App app;
 
     @BeforeAll
