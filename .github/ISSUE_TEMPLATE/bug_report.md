@@ -1,10 +1,10 @@
 ### Bug Report 1
 ---
-Name: incompatible version
-About: OpenJDK 64-bit Server VM warning 
-Title: 'Java HotSpot(TM) Warning'
-Labels: bug
-Assignees: wai4043, WaiLinn-Oo (@github)
+name: incompatible version
+about: OpenJDK 64-bit Server VM warning 
+title: 'Java HotSpot(TM) Warning'
+labels: bug
+assignees: wai4043, WaiLinn-Oo (@github)
 
 ---
 
