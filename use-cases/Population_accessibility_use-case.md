@@ -27,11 +27,11 @@ not able to manage the population data.
 
 ### Primary Actor
 
-user
+the user
 
 ### Trigger
 
-the user wants to.
+the user's request.
 
 ## MAIN SUCCESS SCENARIO
 
