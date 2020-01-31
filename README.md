@@ -18,6 +18,16 @@
 - Used CODECOV for suitable integration tests [Check it out here!](https://codecov.io/gh/Team-3-DevOps/coursework/branch/develop)
 - Test Units are also built at Travis CI which are surely passed.
 
+### Code Review 4
+- Project Requirement meets up to 32 tasks among 33 tasks.
+- Deployment is working fine and bug-reporting systems are configured. 
+- Furthermore, code quality and debugging are performed. 
+- Project Kanban broad is also managed for stories. 
+- Jira Software is integrated with Github.
+- Travis CI built are also passed.
+- At this point we found a few bugs on our project [Check it out here!](https://github.com/Team-3-DevOps/coursework/tree/bug-patch-1/.github/ISSUE_TEMPLATE)
+
+
 ## Software Engineering Methods
 - Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
 - Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
