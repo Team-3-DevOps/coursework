@@ -21,7 +21,7 @@ Steps to reproduce the behavior:
 Java version and IDEA supporting should compatible each other.
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+![alt text](https://github.com/Team-3-DevOps/coursework/blob/bug-patch-1/.github/ISSUE_TEMPLATE/Bug.PNG "BUG FOUND")
 
 **Desktop (please complete the following information):**
  - OS: [Window 10 64 bit]
