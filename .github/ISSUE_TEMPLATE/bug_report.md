@@ -50,6 +50,7 @@ Steps to reproduce the behavior:
 3. Scroll down to 'Run main function'
 4. After that you will need to choose an option for specific report 
 5. So, enter an option number that doesn't exist in Given Menu. 
+6. Then, you will only see that you choice enters to the last option and continues even it is not the choice you made. 
 
 **Expected behavior**
 Vailidate input values and go back to main menu if there is something gone wrong or overlimting values. 
