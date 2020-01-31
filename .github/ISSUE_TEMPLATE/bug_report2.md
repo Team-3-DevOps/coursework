@@ -1,5 +1,4 @@
- ### Bug Report 2
----
+ ---
 Name: Main Menu error
 About: selecting options 
 Title: 'Poor if else statements'
