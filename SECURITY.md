@@ -14,8 +14,7 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 In this coursework, there can have sql injection attack beacuse there doesn't use any filters.
-Databse should be protected with password.
-This doen't have any authentication, authorization.
+This doen't have restricted permission for specific users.
 There use public in the fields. 
 
 
