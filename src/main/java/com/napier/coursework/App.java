@@ -1444,6 +1444,64 @@ private Connection con = null;
         System.out.println("number of populations - " + population.size());
     }
 
+    /**
+     * @return The population of people, people living in cities, and people not living in cities in each region.
+     */
+    public ArrayList<Population> getLanguageUsageList()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT countrylanguage.Language, SUM(100*(country.Population *( countrylanguage.Percentage /100))/6078749450) from countrylanguage, country WHERE countrylanguage.CountryCode= country.Code GROUP By countrylanguage.Language ORDER By (SUM(100*(country.Population *( countrylanguage.Percentage /100))/6078749450)) DESC LIMIT 5";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract Population information
+            ArrayList<Population> population = new ArrayList<Population>();
+            while (rset.next())
+            {
+                Population Popu = new Population();
+                    Popu.setName(rset.getString(1));
+                    Popu.setLanguage_used_percent(rset.getFloat(2));
+                    population.add(Popu);
+
+            }
+
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    public void printLanguageList(ArrayList<Population> population)
+    {
+        // Check population is not null
+        if (population == null)
+        {
+            System.out.println("No populations");
+            return;
+        }
+        // Print header
+        System.out.println("Here is a Total population report");
+        System.out.println(String.format("%-40s %-20s", "Name", "Percentage of world that used different language"));
+        // Loop over all the answer in the list
+        for (Population popul : population)
+        {
+            if (popul == null)
+                continue;
+            String popul_string =
+                    String.format("%-40s %-20s",
+                            popul.getName(), popul.getLanguage_used_percent()+"%");
+            System.out.println(popul_string);
+        }
+        System.out.println("number of populations - " + population.size());
+    }
 
     public static void main(String[] args)
     {
@@ -1470,8 +1528,8 @@ private Connection con = null;
                 System.out.println("2. CITY REPORTS +-");
                 System.out.println("3. CAPITAL CITY REPORTS +-");
                 System.out.println("4. Population REPORTS of people living in cities and not living in the cities +-");
-                System.out.println("5. Access the population infromation");
-                System.out.println("6. Population of people that used different lanaugages");
+                System.out.println("5. Access the population information");
+                System.out.println("6. Population of people that used different languages");
                 System.out.print("Choose an option: ");
                 Integer selector1 = a.getINTInput();
                 if(selector1 == 1)
@@ -1840,6 +1898,19 @@ private Connection con = null;
                             // Print format function for population living and not living in cities
                             a.printPopulationTotal(population);
                         }
+                    }
+                    catch (Exception e)
+                    {
+                        System.out.println("Error");
+                    }
+                }
+                else if (selector1==6)
+                {
+                    try{
+                        // Extract population of living in cities and not
+                        ArrayList<Population> population = a.getLanguageUsageList();
+                        // Print format function for population living and not living in cities
+                        a.printLanguageList(population);
                     }
                     catch (Exception e)
                     {

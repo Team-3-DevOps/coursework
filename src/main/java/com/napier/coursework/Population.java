@@ -8,7 +8,17 @@ public class Population {
     private long living_in_city;
     private float living_in_city_percent;
     private long not_living_in_city;
+
+    public float getLanguage_used_percent() {
+        return language_used_percent;
+    }
+
+    public void setLanguage_used_percent(float language_used_percent) {
+        this.language_used_percent = language_used_percent;
+    }
+
     private float not_living_in_city_percent;
+    private float language_used_percent;
 
     public float getLiving_in_city_percent() {
         return living_in_city_percent;
@@ -69,6 +79,7 @@ public class Population {
                 ", living_in_city_percent=" + living_in_city_percent +
                 ", not_living_in_city=" + not_living_in_city +
                 ", not_living_in_city_percent=" + not_living_in_city_percent +
+                ", language_used_percent=" + language_used_percent +
                 '}';
     }
 }
