@@ -1453,9 +1453,10 @@ private Connection con = null;
         {
             // Create an SQL statement
             Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT countrylanguage.Language, SUM(100*(country.Population *( countrylanguage.Percentage /100))/6078749450) from countrylanguage, country WHERE countrylanguage.CountryCode= country.Code GROUP By countrylanguage.Language ORDER By (SUM(100*(country.Population *( countrylanguage.Percentage /100))/6078749450)) DESC LIMIT 5";
+            Statement stmt1 = con.createStatement();
+            // Create string for SQL statement LIMIT 5";
+            String strSelect=
+                    "SELECT  countrylanguage.Language, SUM((country.Population *( countrylanguage.Percentage /100))) from countrylanguage, country WHERE countrylanguage.CountryCode= country.Code GROUP By countrylanguage.Language ORDER By (SUM(100*(country.Population *( countrylanguage.Percentage /100))/6078749450)) DESC LIMIT 5";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract Population information
@@ -1463,10 +1464,15 @@ private Connection con = null;
             while (rset.next())
             {
                 Population Popu = new Population();
-                    Popu.setName(rset.getString(1));
-                    Popu.setLanguage_used_percent(rset.getFloat(2));
+                Popu.setName(rset.getString(1));
+                Popu.setTotal(rset.getLong(2));
+                String strSelect1=
+                        "SELECT SUM(country.population) FROM country";
+                ResultSet rset1 = stmt1.executeQuery(strSelect1);
+                while (rset1.next()) {
+                    Popu.setLanguage_used_percent((float)((rset.getLong(2))) * 100 / rset1.getLong(1));
+                }
                     population.add(Popu);
-
             }
 
             return population;
@@ -1488,16 +1494,16 @@ private Connection con = null;
             return;
         }
         // Print header
-        System.out.println("Here is a Total population report");
-        System.out.println(String.format("%-40s %-20s", "Name", "Percentage of world that used different language"));
+        System.out.println("Here is a report of a number of people that used following languages");
+        System.out.println(String.format("%-40s %-40s %-20s", "Name", "Total number of people","Percentage of world"));
         // Loop over all the answer in the list
         for (Population popul : population)
         {
             if (popul == null)
                 continue;
             String popul_string =
-                    String.format("%-40s %-20s",
-                            popul.getName(), popul.getLanguage_used_percent()+"%");
+                    String.format("%-40s %-40s %-20s",
+                            popul.getName(), popul.getTotal(),popul.getLanguage_used_percent()+"%");
             System.out.println(popul_string);
         }
         System.out.println("number of populations - " + population.size());
