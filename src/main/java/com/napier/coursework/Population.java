@@ -28,6 +28,10 @@ public class Population {
      */
     private float not_living_in_city_percent;
     /**
+     * Percentage of Population with language used.
+     */
+    private float language_used_percent;
+    /**
      * Get method for Percentage of Total Population in cities.
      */
     public float getLiving_in_city_percent() {
@@ -51,8 +55,6 @@ public class Population {
     public void setNot_living_in_city_percent(float not_living_in_city_percent) {
         this.not_living_in_city_percent = not_living_in_city_percent;
     }
-
-
     /**
      * Get method for Name of Continent, Region, Country, District, City.
      */
@@ -102,6 +104,19 @@ public class Population {
         this.not_living_in_city = not_living_in_city;
     }
     /**
+     * Get method for Population with language used.
+     */
+    public float getLanguage_used_percent() {
+        return language_used_percent;
+    }
+    /**
+     * Set method for Population with language used.
+     */
+    public void setLanguage_used_percent(float language_used_percent) {
+        this.language_used_percent = language_used_percent;
+    }
+
+    /**
      * Override method for Population Report
      */
     @Override
@@ -113,6 +128,7 @@ public class Population {
                 ", living_in_city_percent=" + living_in_city_percent +
                 ", not_living_in_city=" + not_living_in_city +
                 ", not_living_in_city_percent=" + not_living_in_city_percent +
+                ", language_used_percent=" + language_used_percent +
                 '}';
     }
 }
