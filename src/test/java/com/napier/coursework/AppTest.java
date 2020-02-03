@@ -50,6 +50,12 @@ public class AppTest {
     }
 
     @Test
+    void printLanguageListNull()
+    {
+        app.printLanguageList(null);
+    }
+
+    @Test
     void printCountriesEmpty()
     {
         ArrayList<Country> countries = new ArrayList<Country>();
@@ -82,6 +88,13 @@ public class AppTest {
     {
         ArrayList<Population> populations = new ArrayList<Population>();
         app.printPopulationTotal(populations);
+    }
+
+    @Test
+    void printLanguageListEmpty()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        app.printLanguageList(populations);
     }
 
     @Test
@@ -121,6 +134,14 @@ public class AppTest {
         ArrayList<Population> populations = new ArrayList<Population>();
         populations.add(null);
         app.printPopulationTotal(populations);
+    }
+
+    @Test
+    void printLanguageListContainsNull()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        populations.add(null);
+        app.printLanguageList(populations);
     }
 
     @Test
@@ -187,5 +208,17 @@ public class AppTest {
         popul.setTotal(30401150);
         populations.add(popul);
         app.printPopulationTotal(populations);
+    }
+
+    @Test
+    void printLanguageList()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        Population popul = new Population();
+        popul.setName("Chinese");
+        popul.setTotal(1191843539);
+        popul.setLanguage_used_percent(19);
+        populations.add(popul);
+        app.printLanguageList(populations);
     }
 }
