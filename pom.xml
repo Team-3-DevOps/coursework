@@ -41,8 +41,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <finalName>seMethods</finalName>
-                    <mainClass>com.napier.sem.App</mainClass>
+                    <finalName>coursework</finalName>
+                    <mainClass>com.napier.coursework.App</mainClass>
                 </configuration>
                 <executions>
                     <execution>

@@ -2,6 +2,7 @@ package com.napier.coursework;
 
 
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.io.BufferedReader;
@@ -106,6 +107,19 @@ private Connection con = null;
             System.out.println(e.getMessage());
             System.out.println("Failed to get inputs");
             return null;
+        }
+    }
+
+    public static void clearScreen() {
+        String os = System.getProperty("os.name");
+        if (os.contains("Windows")) {
+            try {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -1598,6 +1612,7 @@ private Connection con = null;
 
             String answer = "";
             do {
+                clearScreen();
                 System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-++-+-+-+-+-+-++-+-+-");
                 System.out.println("-+-+-+-+-+-+-+-+-+-+(WORLD POPULATION)+-+-+-+-+-+-+-+-+-+-");
                 System.out.println("= Reports are ordered by largest population to smallest =");
@@ -1612,6 +1627,7 @@ private Connection con = null;
                 if(selector1 == 1)
                 {
                     try{
+                        clearScreen();
                         System.out.println("1. Rank all countries in the world");
                         System.out.println("2. Rank all countries in a continent");
                         System.out.println("3. Rank all countries in a region");
@@ -1687,6 +1703,7 @@ private Connection con = null;
                 {
                     try
                     {
+                        clearScreen();
                         System.out.println("1. Rank all cities in the world");
                         System.out.println("2. Rank all cities in a continent");
                         System.out.println("3. Rank all cities in a region");
@@ -1808,6 +1825,7 @@ private Connection con = null;
                 else if (selector1 == 3)
                 {
                     try{
+                        clearScreen();
                         System.out.println("1. Rank all capital cities in the world");
                         System.out.println("2. Rank all capital cities in a continent");
                         System.out.println("3. Rank all capital cities in a region");
@@ -1880,6 +1898,7 @@ private Connection con = null;
                 else if (selector1 == 4)
                 {
                     try{
+                        clearScreen();
                         System.out.println("1. The population of people, people living in cities, and people not living in cities in each continent.");
                         System.out.println("2. The population of people, people living in cities, and people not living in cities in each region.");
                         System.out.println("3. The population of people, people living in cities, and people not living in cities in each country");
@@ -1915,6 +1934,7 @@ private Connection con = null;
                 else if (selector1 == 5)
                 {
                     try{
+                        clearScreen();
                         System.out.println("1. The population of the world");
                         System.out.println("2. The population of a continent");
                         System.out.println("3. The population of a region");
