@@ -35,7 +35,7 @@
 * Change your working directory to this **{Driveletter}:\{$foldername}\{$projectname}\target\**
 * Run ***coursework.jar*** file by executing this command ***java -jar coursework.jar***
 
-_ENJOY and BEST OF LUCK. PEACE!!!_
+***ENJOY and BEST OF LUCK. PEACE OUT!!!***
 
 
 ## Software Engineering Methods
