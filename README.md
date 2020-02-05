@@ -36,7 +36,7 @@
 * Run ***coursework.jar*** file by executing this command ***java -jar coursework.jar***
 
 
-***ENJOY and BEST OF LUCK. PEACE OUT!!!***
+***ENJOY then, BEST OF LUCK. PEACE OUT!!!***
 
 
 ### Software Engineering Methods
