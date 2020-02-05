@@ -1,34 +1,45 @@
-## Team 3: Coursework
-- Team-3-DevOps Organization is created and contributed by four team members. Coursework project repo is also created for group participations. You can also see project kanban broad on project menu of our organization. 
+## World Population Project
+- First of all, here you can generate four kind of reports which concern about City, Country, Capital and Population.
+- First three reports are about rankings by descending population values and last report for accessibiltiy and language criteria. 
 
-## STATUS
-### Code Review 1
-- Checklists of code review 1 are finished as you can see in project of Team-3-DevOps 
-- Code of conduct, product backlog, contribution spreedsheet are submitted on github conducting with Markdown Language.  
-- Any issues happened in this coursework, can be seen in issues menu of coursework.
+### Prerequisites
+* IntelliJ IDEA [Get here!](https://www.jetbrains.com/)
+* DOCKER [Get here!](https://hub.docker.com/)
+* MYSQL [Get here!](https://dev.mysql.com/downloads/installer/)
+* JAVA:latest [Get here!](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Git for version control [Get here!](https://git-scm.com/downloads)
+* Travis for continous integration [Visit there!](https://travis-ci.com/)
+* (codecov.io) for code coverage and testing [What is it?](https://codecov.io/)
 
-### Code Review 2
-- Checklists of code review 2 are finished as you can see in project of Team-3-DevOps but this time, Zube Agile Project Management tool is integrated. User stories issues and sprints broad are applied for relative tasks.  
-- Use case diagram and full use cases are properly defined.
-- Projet Requirement meets to 8 tasks among 33 tasks.
+### How to run? Just follow below instructions properly!
+### Database Setup
+* Firstly, make sure docker connected with your IntelliJ IDEA and Got to the image section of docker
+* Right click on that and pull world database by name of "kevinchalmers/world"
+* Once it is done downloading, right click on that downloaded image and choose 'create container' and click "Create"
+* At the pop-up dialog box, put this (**-e MYSQL_ROOT_PASSWORD=t3devops -p 33060:3306**) at __run options box__. 
+* Then click "Apply and Run" and wait for the database ready for connection. 
 
-### Code Review 3
-- Project Requirement meets to 22 tasks among 33 tasks. 
-- Task Units are defined at all display functions. 
-- Used CODECOV for suitable integration tests [Check it out here!](https://codecov.io/gh/Team-3-DevOps/coursework/branch/develop)
-- Test Units are also built at Travis CI which are surely passed.
+### Maven Process
+* IntelliJ can detect maven plugins. You can found it at the right top conor of IDEA. if you don't, not a problem.
+* So, once you have cloned the whole project, IntelliJ will ask you to enable auto-import maven module.
+* Now, You can see Maven panel at this point.
 
-### Code Review 4
-- Project Requirement meets up to 32 tasks among 33 tasks.
-- Deployment is working fine and bug-reporting systems are configured. 
-- Furthermore, code quality and debugging are performed. 
-- Project Kanban broad is also managed for stories. 
-- Jira Software is integrated with Github.
-- Travis CI built are also passed.
-- At this point we found a few bugs on our project [Check it out here!](https://github.com/Team-3-DevOps/coursework/tree/bug-patch-1/.github/ISSUE_TEMPLATE)
+### Building the project
+* Run Maven Build at maven panel by clicking green arrow button. 
+* Then scroll down **Lifecycle** and **compile project** and the last run **package** to packaging your app. 
+* At this point, your project **jar** file should be generated at target folder within your project folder
+* ({Driveletter}:\{$foldername}\coursework\target>coursework.jar) 
+
+### Run the project 
+* Open your **cmd** as an administrator  
+* Change your working directory to this **{Driveletter}:\{$foldername}\{$projectname}\target\**
+* Run ***coursework.jar*** file by executing this command ***java -jar coursework.jar***
 
 
-## Software Engineering Methods
+***ENJOY and BEST OF LUCK. PEACE OUT!!!***
+
+
+### Software Engineering Methods
 - Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
 - Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
 - License [![LICENSE](https://img.shields.io/github/license/Team-3-DevOps/Coursework.svg?style=flat-square)](https://github.com//Coursework/blob/master/LICENSE)
