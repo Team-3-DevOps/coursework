@@ -28,7 +28,7 @@
 * Run Maven Build at maven panel by clicking green arrow button. 
 * Then scroll down **Lifecycle** and **compile project** and the last run **package** to packaging your app. 
 * At this point, your project **jar** file should be generated at target folder within your project folder
-- ({Driveletter}:\{$foldername}\coursework\target>coursework.jar) 
+* ({Driveletter}:\{$foldername}\coursework\target>coursework.jar) 
 
 ### Run the project 
 * Open your **cmd** as an administrator  
