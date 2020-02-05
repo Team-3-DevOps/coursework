@@ -1,6 +1,6 @@
 # These are supported funding model platforms
 
-github: # [wai4043 , zweminthu, WaiLinn-Oo, kaungkhantkyaw199]
-patreon: # wai4043
-tidelift: #  maven/Team-3-DevOps
-custom: # "https://github.com/Team-3-DevOps/coursework.git"
+github: # github: [wai4043 , zweminthu, WaiLinn-Oo, kaungkhantkyaw199]
+patreon: # patreon: wai4043
+tidelift: # tidelift: maven/Team-3-DevOps
+custom: # custom: "https://github.com/Team-3-DevOps/coursework.git"
