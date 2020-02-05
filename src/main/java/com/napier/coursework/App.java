@@ -109,7 +109,9 @@ private Connection con = null;
             return null;
         }
     }
-
+    /**
+     * Clear screen function.
+     */
     public static void clearScreen() {
         String os = System.getProperty("os.name");
         if (os.contains("Windows")) {
@@ -1683,7 +1685,7 @@ private Connection con = null;
                             // Print format function for countries
                             a.printCountries(countries);
                         }
-                        else{
+                        else if(selector2 ==6){
                             System.out.print("= ENTER a region name - ");
                             String str = a.getSTRInput();
                             System.out.print("= ENTER a number to limit rankings");
@@ -1803,7 +1805,7 @@ private Connection con = null;
                             // Print format function for countries
                             a.printCityInfo(city);
                         }
-                        else
+                        else if (selector2 ==10)
                         {
                             System.out.print("= ENTER a district name - ");
                             String str = a.getSTRInput();
@@ -1879,7 +1881,7 @@ private Connection con = null;
                             // Print format function for capital cities
                             a.printCapitalCityInfo(Capcity);
                         }
-                        else{
+                        else if (selector2==6){
                             System.out.print("= ENTER a region name - ");
                             String str = a.getSTRInput();
                             System.out.print("= ENTER a number to limit rankings - ");
@@ -2016,13 +2018,17 @@ private Connection con = null;
                 }
                 else
                 {
-                    System.out.println("You have entered an invalid choice, please re-enter your choice: ");
-                    break;
+                    System.out.println("You have entered an invalid choice: ");
                 }
-
-                System.out.print("- Do you want to continue <y or n>? ");
-                answer = a.getSTRInput();
-            } while(answer.equals("y"));
+                /**
+                 * to check input to decide to continue or not
+                 */
+                do {
+                    System.out.print("- Do you want to continue <y or n>? ");
+                    answer = a.getSTRInput();
+                    System.out.println("**You inputed "+answer+". Try available inputs (Y or y or N or n)**");
+                }while (!answer.equals("y")&&!answer.equals("Y")&&!answer.equals("N")&&!answer.equals("n"));
+            } while(answer.equals("y")||answer.equals("Y"));
 
 
 
