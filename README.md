@@ -35,10 +35,11 @@
 * Change your working directory to this **{Driveletter}:\{$foldername}\{$projectname}\target\**
 * Run ***coursework.jar*** file by executing this command ***java -jar coursework.jar***
 
+
 ***ENJOY and BEST OF LUCK. PEACE OUT!!!***
 
 
-## Software Engineering Methods
+### Software Engineering Methods
 - Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
 - Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
 - License [![LICENSE](https://img.shields.io/github/license/Team-3-DevOps/Coursework.svg?style=flat-square)](https://github.com//Coursework/blob/master/LICENSE)
