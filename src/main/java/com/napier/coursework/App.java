@@ -1443,14 +1443,14 @@ private Connection con = null;
             // Create string for SQL statement
             String strSelect =
                     "SELECT SUM(city.Population) FROM city WHERE city.District='"+str+"'";
-            System.out.println(str);
+//            System.out.println(str);
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract Population information
             ArrayList<Population> population = new ArrayList<Population>();
             while (rset.next())
             {
-                System.out.println(rset.getLong(1));
+//                System.out.println(rset.getLong(1));
                 Population Popu = new Population();
                 Popu.setTotal(rset.getLong(1));
                 Popu.setName(str);

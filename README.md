@@ -36,11 +36,13 @@
 * Run ***coursework.jar*** file by executing this command ***java -jar coursework.jar***
 
 
-***ENJOY and BEST OF LUCK. PEACE OUT!!!***
+***ENJOY then, BEST OF LUCK. PEACE OUT!!!***
 
 
 ### Software Engineering Methods
-- Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
-- Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/Coursework)
-- License [![LICENSE](https://img.shields.io/github/license/Team-3-DevOps/Coursework.svg?style=flat-square)](https://github.com//Coursework/blob/master/LICENSE)
-- Release [![Releases](https://img.shields.io/github/release/Team-3-DevOps/Coursework/all.svg?style=flat-square)](https://github.com/Team-3-DevOps/Coursework/releases)
+
+- Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
+- Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
+- Code Coverage of tests for Master [![Codecov branch](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework/master?style=plastic&logo=Codecov)](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework)
+- License [![LICENSE](https://img.shields.io/github/license/Team-3-DevOps/coursework.svg?)](https://github.com/Team-3-DevOps/coursework/blob/master/LICENSE)
+- Release [![Releases](https://img.shields.io/github/release/Team-3-DevOps/coursework/all.svg?style=plastic)](https://github.com/Team-3-DevOps/coursework/releases)
