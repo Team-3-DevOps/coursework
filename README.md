@@ -40,6 +40,7 @@
 
 
 ### Software Engineering Methods
+
 - Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
 - Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
 - Code Coverage of tests for Master [![Codecov branch](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework/master)](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework)
