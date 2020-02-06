@@ -448,7 +448,7 @@ public class AppIntegrationTest {
 
 
     @Test
-    void testPopulationInContinent()
+    void testGetPopulationInContinent()
     {
         try{
             ArrayList<Population> popu = app.getPopulationInContinent();
@@ -468,51 +468,51 @@ public class AppIntegrationTest {
         }
     }
 
-//    @Test
-//    void testGetPopulationInRegion()
-//    {
-//        try{
-//            ArrayList<Population> popu = app.getPopulationInContinent();
-//            for(Population ctry1 : popu){
-//                assertEquals(ctry1.getName(),"North America");
-//                assertEquals(ctry1.getTotal(),482993000);
-//                assertEquals(ctry1.getLanguage_used_percent(),0.0);
-//                assertEquals(ctry1.getLiving_in_city(),168250381);
-//                assertEquals(ctry1.getNot_living_in_city(),314742619);
-//                assertEquals(ctry1.getLiving_in_city_percent(),34.83495330810547);
-//                assertEquals(ctry1.getNot_living_in_city_percent(),65.16504669189453);
-//                break;
-//            }
-//            System.out.print("Get population in continent Function: Actual VS Expected Testing Passed!");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    @Test
-//    void testGetPopulationInCountry()
-//    {
-//        try{
-//            ArrayList<Population> popu = app.getPopulationInCountry();
-//            for(Population ctry1 : popu){
-//                assertEquals(ctry1.getName(),"North America");
-//                assertEquals(ctry1.getTotal(),482993000);
-//                assertEquals(ctry1.getLanguage_used_percent(),0.0);
-//                assertEquals(ctry1.getLiving_in_city(),168250381);
-//                assertEquals(ctry1.getNot_living_in_city(),314742619);
-//                assertEquals(ctry1.getLiving_in_city_percent(),34.83495330810547);
-//                assertEquals(ctry1.getNot_living_in_city_percent(),65.16504669189453);
-//                break;
-//            }
-//            System.out.print("Get population in continent Function: Actual VS Expected Testing Passed!");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    @Test
+    void testGetPopulationInRegion()
+    {
+        try{
+            ArrayList<Population> popu = app.getPopulationInRegion();
+            for(Population ctry1 : popu){
+                assertEquals(ctry1.getName(),"Caribbean");
+                assertEquals(ctry1.getTotal(),38140000);
+                assertEquals(ctry1.getLanguage_used_percent(),0.0);
+                assertEquals(ctry1.getLiving_in_city(),11067550);
+                assertEquals(ctry1.getNot_living_in_city(),27072450);
+                assertEquals(ctry1.getLiving_in_city_percent(),29.018220901489258);
+                assertEquals(ctry1.getNot_living_in_city_percent(),70.98178100585938);
+                break;
+            }
+            System.out.print("Get population in region Function: Actual VS Expected Testing Passed!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void testGetPopulationInCountry()
+    {
+        try{
+            ArrayList<Population> popu = app.getPopulationInCountry();
+            for(Population ctry1 : popu){
+                assertEquals(ctry1.getName(),"Aruba");
+                assertEquals(ctry1.getTotal(),103000);
+                assertEquals(ctry1.getLanguage_used_percent(),0.0);
+                assertEquals(ctry1.getLiving_in_city(),29034);
+                assertEquals(ctry1.getNot_living_in_city(),73966);
+                assertEquals(ctry1.getLiving_in_city_percent(),28.1883487701416);
+                assertEquals(ctry1.getNot_living_in_city_percent(),71.81165313720703);
+                break;
+            }
+            System.out.print("Get population in country Function: Actual VS Expected Testing Passed!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @Test
-    void testGetPopulation()
+    void testPopulation()
     {
         try{
             ArrayList<Population> popu = app.TotalPopuationInWorld();
@@ -527,7 +527,85 @@ public class AppIntegrationTest {
         }
     }
 
+    @Test
+    void testPopulationInContinent()
+    {
+        try{
+            ArrayList<Population> popu = app.TotalPopuationInaContinent("Asia");
+            for(Population ctry1 : popu){
+                assertEquals(ctry1.getTotal(),3705025700L);
+                assertEquals(ctry1.getName(),"Asia");
+                break;
+            }
+            System.out.print("Total population in a continent Function: Actual VS Expected Testing Passed!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    @Test
+    void testPopulationInRegion()
+    {
+        try{
+            ArrayList<Population> popu = app.TotalPopuationInaRegion("Southeast Asia");
+            for(Population ctry1 : popu){
+                assertEquals(ctry1.getTotal(),518541000L);
+                assertEquals(ctry1.getName(),"Southeast Asia");
+                break;
+            }
+            System.out.print("Total population in a region Function: Actual VS Expected Testing Passed!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void testPopulationInCountry()
+    {
+        try{
+            ArrayList<Population> popu = app.TotalPopuationInaCountry("Myanmar");
+            for(Population ctry1 : popu){
+                assertEquals(ctry1.getTotal(),45611000);
+                assertEquals(ctry1.getName(),"Myanmar");
+                break;
+            }
+            System.out.print("Total population in a country Function: Actual VS Expected Testing Passed!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void testPopulationInDistrict()
+    {
+        try{
+            ArrayList<Population> popu = app.TotalPopuationInaDistrict("Hunan");
+            for(Population ctry1 : popu){
+                assertEquals(ctry1.getTotal(),5439275);
+                assertEquals(ctry1.getName(),"Hunan");
+                break;
+            }
+            System.out.print("Total population in a district Function: Actual VS Expected Testing Passed!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void testPopulationInCity()
+    {
+        try{
+            ArrayList<Population> popu = app.TotalPopuationInaCity("Mandalay");
+            for(Population ctry1 : popu){
+                assertEquals(ctry1.getTotal(),885300);
+                assertEquals(ctry1.getName(),"Mandalay");
+                break;
+            }
+            System.out.print("Total population in a city Function: Actual VS Expected Testing Passed!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
