@@ -41,8 +41,8 @@
 
 ### Software Engineering Methods
 
-- Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
-- Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/Coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
-- Code Coverage of tests for Master [![Codecov branch](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework/master)](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework)
-- License [![LICENSE](https://img.shields.io/github/license/Team-3-DevOps/Coursework.svg?style=flat-square)](https://github.com//Coursework/blob/master/LICENSE)
-- Release [![Releases](https://img.shields.io/github/release/Team-3-DevOps/Coursework/all.svg?style=flat-square)](https://github.com/Team-3-DevOps/coursework/releases)
+- Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
+- Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
+- Code Coverage of tests for Master [![Codecov branch](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework/master?style=plastic&logo=Codecov)](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework)
+- License [![LICENSE](https://img.shields.io/github/license/Team-3-DevOps/coursework.svg?)](https://github.com/Team-3-DevOps/coursework/blob/master/LICENSE)
+- Release [![Releases](https://img.shields.io/github/release/Team-3-DevOps/coursework/all.svg?style=plastic)](https://github.com/Team-3-DevOps/coursework/releases)
