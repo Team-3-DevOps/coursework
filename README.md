@@ -2,6 +2,14 @@
 - First of all, here you can generate four kind of reports which concern about City, Country, Capital and Population.
 - First three reports are about rankings by descending population values and last report for accessibiltiy and language criteria. 
 
+## Software Engineering Methods
+
+- Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
+- Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
+- Code Coverage of tests for Master [![Codecov branch](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework/master?style=plastic&logo=Codecov)](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework)
+- License [![LICENSE](https://img.shields.io/github/license/Team-3-DevOps/coursework.svg?)](https://github.com/Team-3-DevOps/coursework/blob/master/LICENSE)
+- Release [![Releases](https://img.shields.io/github/release/Team-3-DevOps/coursework/all.svg?style=plastic)](https://github.com/Team-3-DevOps/coursework/releases)
+
 ### Prerequisites
 * IntelliJ IDEA [Get here!](https://www.jetbrains.com/)
 * DOCKER [Get here!](https://hub.docker.com/)
@@ -35,14 +43,44 @@
 * Change your working directory to this **{Driveletter}:\{$foldername}\{$projectname}\target\**
 * Run ***coursework.jar*** file by executing this command ***java -jar coursework.jar***
 
-
 ***ENJOY then, BEST OF LUCK. PEACE OUT!!!***
 
 
-### Software Engineering Methods
+| ID | Name | Met | Screenshot | 
+| -- |:--------:|:-----------:|:------------:|
+| 1 | All the countries in the world organised by largest population to smallest | yes | [Check](https://www.google.com) | 
+| 2 | All the countries in a continent organised by largest population to smallest | yes| - | 
+| 3 | All the countries in a region organised by largest population to smallest. | yes| - | 
+| 4 | The top N populated countries in the world where N is provided by the user | yes| - | 
+| 5 | The top N populated countries in a continent where N is provided by the user | yes| - | 
+| 6 | The top N populated countries in a region where N is provided by the user | yes| - | 
+| 7 | All the cities in the world organised by largest population to smallest | yes| - | 
+| 8 | All the cities in a continent organised by largest population to smallest | yes| - | 
+| 9 | All the cities in a region organised by largest population to smallest | yes| - | 
+| 10 | All the cities in a country organised by largest population to smallest | yes| - | 
+| 11 | All the cities in a district organised by largest population to smallest | yes| - | 
+| 12 | The top N populated cities in the world where N is provided by the user | yes| - | 
+| 13 | The top N populated cities in a continent where N is provided by the user | yes| - | 
+| 14 | The top N populated cities in a region where N is provided by the user | yes| - | 
+| 15 |The top N populated cities in a country where N is provided by the user | yes| - | 
+| 16 | The top N populated cities in a district where N is provided by the user | yes| - | 
+| 17 | All the capital cities in the world organised by largest population to smallest.| yes| - | 
+| 18 | All the capital cities in a continent organised by largest population to smallest| yes| - |
+| 19 |All the capital cities in a region organised by largest to smallest | yes| - | 
+| 20 | The top N populated capital cities in the world where N is provided by the user | yes| - | 
+| 21 | The top N populated capital cities in a continent where N is provided by the user | yes| - | 
+| 22 | The top N populated capital cities in a region where N is provided by the user| yes| - | 
+| 23 | The population of people, people living in cities, and people not living in cities in each continent| yes| - | 
+| 24 | The population of people, people living in cities, and people not living in cities in each region| yes| - | 
+| 25 |The population of people, people living in cities, and people not living in cities in each country| yes| - | 
+| 26 | The population of the world| yes| - | 
+| 27 | The population of a continent | yes| - | 
+| 28 | The population of a region | yes| - | 
+| 29 | The population of a country| yes| - | 
+| 30 | The population of a district | yes| - | 
+| 31 |The population of a city | yes| - | 
+| 32 |people who speak the following the following languages from greatest number to smallest, including the percentage of the world population: Chinese, English, Hindi, Spanish, Arabic | yes| - | 
 
-- Master Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
-- Develop Build Status [![Build Status](https://travis-ci.com/Team-3-DevOps/coursework.svg?branch=master)](https://travis-ci.com/Team-3-DevOps/coursework)
-- Code Coverage of tests for Master [![Codecov branch](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework/master?style=plastic&logo=Codecov)](https://img.shields.io/codecov/c/github/Team-3-DevOps/coursework)
-- License [![LICENSE](https://img.shields.io/github/license/Team-3-DevOps/coursework.svg?)](https://github.com/Team-3-DevOps/coursework/blob/master/LICENSE)
-- Release [![Releases](https://img.shields.io/github/release/Team-3-DevOps/coursework/all.svg?style=plastic)](https://github.com/Team-3-DevOps/coursework/releases)
+
+
+
